@@ -264,3 +264,219 @@ img.reveal {
 .sec-15__inner {
   padding: var(--pad-y) var(--pad-x);
 }
+
+
+/* ============================================
+   フローティングバー（画面下固定CTA）
+   薄型ピル型・常時表示・パルスアニメ付き
+============================================ */
+.floating-bar {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 24px);
+  max-width: 440px;            /* LP幅 480 - 左右余白 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 24px;          /* ←ここで高さ調整。薄めにしたい場合は縦の数字を小さく */
+  background: var(--c-navy);
+  color: var(--c-cream);
+  font-family: var(--f-sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-align: center;
+  border-radius: 999px;
+  z-index: 99;
+  box-shadow:
+    0 6px 22px rgba(30, 58, 107, 0.30),
+    0 0 0 1px rgba(200, 165, 107, 0.25);
+  transition: var(--t-base);
+  animation: floatingBarPulse 4.5s ease-in-out infinite;
+}
+
+.floating-bar:hover {
+  background: var(--c-navy-deep);
+  transform: translateX(-50%) translateY(-3px);
+  box-shadow:
+    0 12px 30px rgba(30, 58, 107, 0.40),
+    0 0 0 1px var(--c-gold);
+}
+
+.floating-bar__label {
+  white-space: nowrap;
+}
+
+.floating-bar__arrow {
+  font-size: 15px;
+  line-height: 1;
+  transition: transform var(--t-fast);
+}
+
+.floating-bar:hover .floating-bar__arrow {
+  transform: translateX(4px);
+}
+
+@keyframes floatingBarPulse {
+  0%, 100% {
+    box-shadow:
+      0 6px 22px rgba(30, 58, 107, 0.30),
+      0 0 0 1px rgba(200, 165, 107, 0.25);
+  }
+  50% {
+    box-shadow:
+      0 8px 28px rgba(30, 58, 107, 0.35),
+      0 0 0 2px rgba(200, 165, 107, 0.55);
+  }
+}
+
+/* フローティングバー分だけページ下部に余白を確保
+   （これがないとフッターやセクション15の最下部がバーに隠れる） */
+body {
+  padding-bottom: 84px;
+}
+
+
+/* ============================================
+   紹介カード（フローティングバー上の固定カード）
+   アフィリエイトコード表示用・タップでコピー可
+============================================ */
+.referral-card {
+  position: fixed;
+  bottom: 76px;                  /* フローティングバーのすぐ上 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 24px);
+  max-width: 440px;
+  background: var(--c-cream-light);
+  border: 1.5px solid var(--c-gold);
+  border-radius: var(--radius-md);
+  padding: 12px 18px 10px;
+  text-align: center;
+  z-index: 98;
+  box-shadow:
+    0 6px 20px rgba(30, 58, 107, 0.15),
+    0 0 0 4px rgba(245, 232, 220, 0.6);
+}
+
+/* 上部ラベル「REFERRED BY」 */
+.referral-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.referral-card__top-line {
+  width: 24px;
+  height: 1px;
+  background: var(--c-gold);
+}
+
+.referral-card__top-label {
+  font-family: var(--f-serif);
+  font-size: 9px;
+  color: var(--c-gold);
+  letter-spacing: 0.3em;
+  font-weight: 500;
+}
+
+/* 紹介者名 */
+.referral-card__name {
+  font-family: var(--f-serif);
+  font-size: 15px;
+  color: var(--c-navy);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+/* コード表示行 */
+.referral-card__code-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.referral-card__code-label {
+  font-size: 10px;
+  color: var(--c-text-soft);
+  letter-spacing: 0.2em;
+  font-weight: 500;
+}
+
+/* コード本体（ボタン化してタップでコピー） */
+.referral-card__code {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-navy);
+  background: var(--c-white);
+  border: 1.5px solid var(--c-gold);
+  border-radius: 6px;
+  padding: 6px 14px;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: var(--t-fast);
+  position: relative;
+  font-family: var(--f-serif);
+}
+
+.referral-card__code:hover {
+  background: var(--c-gold);
+  color: var(--c-white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(200, 165, 107, 0.4);
+}
+
+.referral-card__code:active {
+  transform: translateY(0);
+}
+
+.referral-card__code-icon {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* コピー完了時のフィードバック */
+.referral-card__code.is-copied {
+  background: var(--c-navy);
+  color: var(--c-cream);
+  border-color: var(--c-navy);
+}
+
+.referral-card__code.is-copied .referral-card__code-value::after {
+  content: " ✓";
+  margin-left: 4px;
+  color: var(--c-gold-light);
+}
+
+.referral-card__code.is-copied .referral-card__code-icon {
+  opacity: 0;
+}
+
+/* 注意書き */
+.referral-card__note {
+  font-size: 9px;
+  color: var(--c-text-muted);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* フローティングバー（既存）の bottom 位置はそのまま 12px なので
+   referral-card は bottom: 76px で重ならない */
+
+/* body の padding-bottom を再調整（紹介カード分も加算） */
+body {
+  padding-bottom: 180px;
+}

@@ -42,4 +42,42 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+
+  /* ---- 紹介コードのタップでコピー ---- */
+  const codeBtn = document.getElementById('referralCodeBtn');
+  if (codeBtn) {
+    codeBtn.addEventListener('click', function () {
+      const code = this.dataset.code || this.textContent.trim();
+      const showCopied = () => {
+        this.classList.add('is-copied');
+        setTimeout(() => this.classList.remove('is-copied'), 1800);
+      };
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(code).then(showCopied).catch(function () {
+          // クリップボードAPIが失敗した場合のフォールバック
+          fallbackCopy(code, showCopied);
+        });
+      } else {
+        fallbackCopy(code, showCopied);
+      }
+    });
+  }
+
+  function fallbackCopy(text, onSuccess) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      onSuccess && onSuccess();
+    } catch (err) {
+      console.warn('コピーに失敗しました', err);
+    }
+    document.body.removeChild(ta);
+  }
+
 });
