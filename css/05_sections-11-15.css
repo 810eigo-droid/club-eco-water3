@@ -1,0 +1,412 @@
+/* =========================================================
+   05_sections-11-15.css
+   役割：セクション 11〜15 のスタイル
+   ・11 PFAS 90%以上低減
+   ・12 お客様の声
+   ・13 こんな方に
+   ・14 オファー
+   ・15 クロージング
+   ========================================================= */
+
+
+/* ============================================
+   セクション 11：PFAS 90%以上低減
+============================================ */
+.sec-11 {
+  background: var(--c-cream);
+}
+
+.sec-11__inner { text-align: center; }
+
+.sec-11__title {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+.big-number {
+  font-family: var(--f-serif);
+  font-size: 88px;
+  font-weight: 700;
+  color: var(--c-navy);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.big-number small {
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--c-gold);
+  margin-left: 2px;
+}
+
+.big-text {
+  font-family: var(--f-serif);
+  font-size: 18px;
+  color: var(--c-navy);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.sec-11__lead {
+  font-family: var(--f-serif);
+  font-size: 16px;
+  color: var(--c-gold);
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.sec-11__photo {
+  width: 100%;
+  aspect-ratio: 27 / 20;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin: 0 auto 28px;
+  box-shadow: var(--shadow-soft);
+}
+
+.sec-11__body {
+  font-size: 13px;
+  color: var(--c-navy);
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.sec-11__note {
+  font-size: 11px;
+  color: var(--c-text-muted);
+  letter-spacing: 0.05em;
+}
+
+
+/* ============================================
+   セクション 12：お客様の声
+============================================ */
+.sec-12 {
+  background: var(--c-sky);
+}
+
+.sec-12__inner { text-align: center; }
+
+.sec-12__title {
+  font-family: var(--f-serif);
+  font-size: 22px;
+  color: var(--c-navy);
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+}
+
+.sec-12__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin: 0 auto 24px;
+  box-shadow: var(--shadow-soft);
+}
+
+.sec-12__intro {
+  font-family: var(--f-serif);
+  font-size: 13px;
+  color: var(--c-navy);
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+.voice-list {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 8px 22px;
+  margin: 0 auto;
+  max-width: 360px;
+}
+
+.voice-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 0.5px dashed rgba(30, 58, 107, 0.15);
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--c-navy);
+  text-align: left;
+}
+
+.voice-list li:last-child { border-bottom: none; }
+
+.voice-list__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--c-gold);
+  color: var(--c-white);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+
+/* ============================================
+   セクション 13：こんな方に
+============================================ */
+.sec-13 {
+  background: var(--c-sky);
+}
+
+.sec-13__inner { text-align: center; }
+
+.sec-13__title {
+  font-family: var(--f-serif);
+  font-size: 24px;
+  color: var(--c-navy);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+}
+
+.sec-13__photo {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin: 0 auto 28px;
+  box-shadow: var(--shadow-soft);
+}
+
+.target-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.target-list li {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 16px 20px 16px 48px;
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--c-navy);
+  position: relative;
+  text-align: left;
+  letter-spacing: 0.04em;
+}
+
+.target-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-gold);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+
+/* ============================================
+   セクション 14：オファー（常温サーバー無料）
+============================================ */
+.sec-14 {
+  background: var(--c-cream);
+  position: relative;
+}
+
+.sec-14__inner { text-align: center; }
+
+.sec-14__lead {
+  font-family: var(--f-serif);
+  font-size: 16px;
+  color: var(--c-gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 10px;
+}
+
+.sec-14__title {
+  font-family: var(--f-serif);
+  font-size: 30px;
+  color: var(--c-navy);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  margin-bottom: 32px;
+}
+
+.sec-14__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  margin: 0 auto 32px;
+  box-shadow: var(--shadow-soft);
+  animation: float 5s ease-in-out infinite;
+}
+
+/* 価格カード */
+.sec-14__price {
+  background: var(--c-white);
+  border: 2px solid var(--c-gold);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.sec-14__price-label {
+  font-size: 12px;
+  color: var(--c-text-muted);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+
+.sec-14__price-old {
+  font-family: var(--f-serif);
+  font-size: 32px;
+  color: var(--c-text-soft);
+  font-weight: 500;
+  text-decoration: line-through;
+  text-decoration-color: rgba(218, 84, 84, 0.7);
+  text-decoration-thickness: 2px;
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.sec-14__price-old small {
+  font-size: 14px;
+  color: var(--c-text-muted);
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.sec-14__price-arrow {
+  color: var(--c-gold);
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+.sec-14__price-new {
+  font-family: var(--f-serif);
+  font-size: 84px;
+  font-weight: 700;
+  color: var(--c-navy);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.sec-14__price-new .zero {
+  background: linear-gradient(180deg, var(--c-gold) 0%, var(--c-navy) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sec-14__price-new small {
+  font-size: 24px;
+  color: var(--c-navy);
+  -webkit-text-fill-color: var(--c-navy);
+  margin-left: 4px;
+  font-weight: 500;
+}
+
+.sec-14__price-note {
+  font-size: 11px;
+  color: var(--c-gold);
+  letter-spacing: 0.1em;
+  margin-top: 6px;
+}
+
+.sec-14__body {
+  font-size: 13px;
+  color: var(--c-navy);
+  line-height: 2;
+}
+
+
+/* ============================================
+   セクション 15：クロージング
+============================================ */
+.sec-15 {
+  background: var(--c-navy);
+  color: var(--c-cream);
+  position: relative;
+}
+
+.sec-15__inner { text-align: center; }
+
+.sec-15__title {
+  font-family: var(--f-serif);
+  font-size: 26px;
+  color: var(--c-white);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.sec-15__title-strong {
+  display: inline-block;
+  font-size: 30px;
+  color: var(--c-gold-light);
+  margin-top: 6px;
+}
+
+.sec-15__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin: 0 auto 32px;
+  border: 1px solid rgba(200, 165, 107, 0.25);
+}
+
+.sec-15__message {
+  margin-bottom: 32px;
+}
+
+.sec-15__message p {
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--c-sky);
+  line-height: 2;
+  margin-bottom: 8px;
+}
+
+.sec-15__keyword {
+  font-family: var(--f-serif);
+  font-size: 22px !important;
+  color: var(--c-gold-light) !important;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 10px 0;
+}
+
+.sec-15__invite {
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--c-cream);
+  line-height: 2;
+  margin-bottom: 32px;
+}
+
+/* セクション15内のCTAボタンを白系に変更 */
+.sec-15 .cta-button {
+  background: var(--c-gold);
+  color: var(--c-navy);
+}
+
+.sec-15 .cta-button:hover {
+  background: var(--c-gold-light);
+}

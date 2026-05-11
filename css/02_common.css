@@ -1,0 +1,266 @@
+/* =========================================================
+   02_common.css
+   役割：ヘッダー、フッター、波区切り、CTAボタン、
+        チェックリスト等の共通パーツ
+   ========================================================= */
+
+
+/* ============================================
+   ヘッダー
+============================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 0.5px solid rgba(30, 58, 107, 0.12);
+}
+
+.site-header__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header__logo {
+  font-family: var(--f-serif);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--c-navy);
+}
+
+.site-header__cta {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--c-cream);
+  background: var(--c-navy);
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: var(--t-fast);
+}
+
+.site-header__cta:hover {
+  background: var(--c-navy-deep);
+  transform: translateY(-1px);
+}
+
+
+/* ============================================
+   フッター
+============================================ */
+.site-footer {
+  background: var(--c-navy);
+  color: var(--c-cream);
+  margin-top: 0;
+}
+
+.site-footer__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 48px 24px 36px;
+  text-align: center;
+}
+
+.site-footer__brand {
+  font-family: var(--f-serif);
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  margin-bottom: 24px;
+  color: var(--c-gold-light);
+}
+
+.site-footer__agent {
+  font-size: 12px;
+  line-height: 2;
+  color: var(--c-cream);
+  padding-bottom: 24px;
+  border-bottom: 0.5px solid rgba(245, 232, 220, 0.2);
+  margin-bottom: 24px;
+}
+
+.site-footer__copy {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(245, 232, 220, 0.5);
+}
+
+
+/* ============================================
+   波の区切り（セクション間のトランジション）
+   ※SVGデータURL方式で確実に動作
+============================================ */
+.wave-divider {
+  width: 100%;
+  height: 28px;
+  position: relative;
+  line-height: 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* クリーム背景に薄いブルーバブル装飾（同色セクション内） */
+.wave-divider--top {
+  background-color: var(--c-cream);
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'><circle cx='15' cy='7' r='3' fill='%23A0CDE5' opacity='0.25'/><circle cx='45' cy='7' r='3.5' fill='%23A0CDE5' opacity='0.25'/><circle cx='75' cy='7' r='3' fill='%23A0CDE5' opacity='0.25'/></svg>");
+}
+
+/* ネイビーセクションの上端：クリームから降りる波 */
+.wave-divider--down-cream {
+  background-color: var(--c-navy);
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'><path d='M0,0 L100,0 L100,7 Q75,14 50,7 T0,7 Z' fill='%23F5E8DC'/></svg>");
+}
+
+/* ネイビーセクションの下端：クリームへ昇る波 */
+.wave-divider--up-cream {
+  background-color: var(--c-navy);
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'><path d='M0,14 L100,14 L100,7 Q75,0 50,7 T0,7 Z' fill='%23F5E8DC'/></svg>");
+}
+
+/* スカイブルーセクションの上端：クリームから降りる波 */
+.wave-divider--down-sky {
+  background-color: var(--c-cream);
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'><path d='M0,14 L100,14 L100,7 Q75,0 50,7 T0,7 Z' fill='%23E8F2F6'/></svg>");
+}
+
+/* スカイブルーセクションの下端：クリームへ昇る波 */
+.wave-divider--up-sky {
+  background-color: var(--c-cream);
+  background-image: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'><path d='M0,0 L100,0 L100,7 Q75,14 50,7 T0,7 Z' fill='%23E8F2F6'/></svg>");
+}
+
+
+/* ============================================
+   チェックリスト（共通）
+============================================ */
+.checklist {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  margin: 0 auto;
+  max-width: 360px;
+}
+
+.checklist li {
+  font-size: 13px;
+  color: var(--c-navy);
+  padding: 10px 0 10px 28px;
+  position: relative;
+  border-bottom: 0.5px dashed rgba(30, 58, 107, 0.18);
+  letter-spacing: 0.04em;
+}
+
+.checklist li:last-child { border-bottom: none; }
+
+.checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-sky-deep);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+/* ============================================
+   CTAボタン
+============================================ */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--c-navy);
+  color: var(--c-cream);
+  font-family: var(--f-sans);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 18px 32px;
+  border-radius: 999px;
+  min-width: 260px;
+  box-shadow: var(--shadow-soft);
+  transition: var(--t-base);
+  position: relative;
+  overflow: hidden;
+  animation: ctaPulse 4s ease-in-out infinite;
+}
+
+.cta-button:hover {
+  background: var(--c-navy-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(30, 58, 107, 0.18);
+}
+
+.cta-button__arrow {
+  font-size: 16px;
+  transition: transform var(--t-fast);
+}
+
+.cta-button:hover .cta-button__arrow { transform: translateX(4px); }
+
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: var(--shadow-soft); }
+  50%      { box-shadow: 0 10px 36px rgba(30, 58, 107, 0.16); }
+}
+
+
+/* ============================================
+   スクロール・リビール（フェードイン）
+============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--t-slow), transform var(--t-slow);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 画像はもう少しゆっくり */
+img.reveal {
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ============================================
+   浮遊アニメーション（画像用）
+============================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+.float { animation: float 4s ease-in-out infinite; }
+
+
+/* ============================================
+   セクション共通の左右パディング
+============================================ */
+.sec-02__inner,
+.sec-03__inner,
+.sec-04__inner,
+.sec-05__inner,
+.sec-06__inner,
+.sec-07__inner,
+.sec-08__inner,
+.sec-09__inner,
+.sec-10__inner,
+.sec-11__inner,
+.sec-12__inner,
+.sec-13__inner,
+.sec-14__inner,
+.sec-15__inner {
+  padding: var(--pad-y) var(--pad-x);
+}

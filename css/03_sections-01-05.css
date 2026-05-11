@@ -1,0 +1,419 @@
+/* =========================================================
+   03_sections-01-05.css
+   役割：セクション 01〜05 のスタイル
+   ・01 FV
+   ・02 共感
+   ・03 PFAS問題
+   ・04 現代人ミネラル不足
+   ・05 ミネラルとは
+   ========================================================= */
+
+
+/* ============================================
+   セクション 01：FV（ファーストビュー）
+============================================ */
+.sec-01 {
+  background: var(--c-cream);
+  position: relative;
+  line-height: 0; /* 画像下の余白除去 */
+}
+
+.sec-01__hero {
+  width: 100%;
+  height: auto;
+  display: block;
+  animation: heroFadeIn 1.2s ease-out;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
+/* ============================================
+   セクション 02：共感
+============================================ */
+.sec-02 {
+  background: var(--c-cream);
+  position: relative;
+}
+
+.sec-02__inner {
+  text-align: center;
+}
+
+.sec-02__title {
+  font-family: var(--f-serif);
+  font-size: 26px;
+  color: var(--c-navy);
+  margin-bottom: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.sec-02__sub {
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--c-navy);
+  line-height: 2;
+  margin-bottom: 32px;
+}
+
+.sec-02__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin: 0 auto 32px;
+  box-shadow: var(--shadow-soft);
+}
+
+.sec-02__checklist { margin-bottom: 36px; }
+
+.sec-02__closing {
+  font-family: var(--f-serif);
+  font-size: 17px;
+  color: var(--c-navy);
+  letter-spacing: 0.1em;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.sec-02__closing::before,
+.sec-02__closing::after {
+  content: "";
+  width: 32px;
+  height: 0.5px;
+  background: var(--c-gold);
+}
+
+
+/* ============================================
+   セクション 03：PFAS問題（ネイビー背景）
+============================================ */
+.sec-03 {
+  background: var(--c-navy);
+  color: var(--c-cream);
+  position: relative;
+}
+
+.sec-03__inner { text-align: center; }
+
+.sec-03__lead {
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--c-sky);
+  line-height: 2;
+  margin-bottom: 10px;
+}
+
+.sec-03__title {
+  font-family: var(--f-serif);
+  font-size: 30px;
+  color: var(--c-white);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.sec-03__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin: 0 auto 28px;
+  border: 1px solid rgba(200, 165, 107, 0.25);
+}
+
+.sec-03__body {
+  font-family: var(--f-serif);
+  font-size: 13px;
+  color: var(--c-sky);
+  line-height: 2.2;
+  margin-bottom: 12px;
+}
+
+.sec-03__keyword {
+  display: inline-block;
+  font-family: var(--f-serif);
+  font-size: 22px;
+  color: var(--c-gold-light);
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  padding: 14px 24px;
+  border-top: 0.5px solid var(--c-gold);
+  border-bottom: 0.5px solid var(--c-gold);
+  margin: 14px auto;
+}
+
+.sec-03__quote {
+  background: rgba(168, 205, 229, 0.08);
+  border-left: 2px solid var(--c-gold);
+  padding: 16px 18px;
+  margin: 28px 0;
+  font-size: 12px;
+  line-height: 2;
+  color: var(--c-sky);
+  text-align: left;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.sec-03__close-lead {
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--c-sky);
+  margin-bottom: 10px;
+}
+
+.sec-03__close-keyword {
+  font-family: var(--f-serif);
+  font-size: 22px;
+  color: var(--c-white);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.sec-03__close-sub {
+  font-family: var(--f-serif);
+  font-size: 13px;
+  color: var(--c-sky);
+  line-height: 1.9;
+}
+
+
+/* ============================================
+   セクション 04：現代人ミネラル不足
+============================================ */
+.sec-04 {
+  background: var(--c-cream);
+}
+
+.sec-04__inner { text-align: center; }
+
+.sec-04__lead {
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--c-navy);
+  line-height: 2;
+  margin-bottom: 8px;
+}
+
+.sec-04__title {
+  font-family: var(--f-serif);
+  font-size: 28px;
+  color: var(--c-navy);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.sec-04__photo {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin: 28px auto 28px;
+  box-shadow: var(--shadow-soft);
+}
+
+.sec-04__reason-title {
+  font-family: var(--f-serif);
+  font-size: 16px;
+  color: var(--c-navy);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.sec-04__body {
+  font-size: 13px;
+  color: var(--c-navy);
+  line-height: 2;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+/* 失われる要因カード */
+.lost-card {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-md);
+  padding: 22px 20px;
+}
+
+.lost-card__eyebrow {
+  font-family: var(--f-serif);
+  font-size: 11px;
+  color: var(--c-gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+
+.lost-card__title {
+  font-family: var(--f-serif);
+  font-size: 16px;
+  color: var(--c-navy);
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.lost-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.lost-card__grid li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 6px;
+  background: var(--c-cream);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  color: var(--c-navy);
+}
+
+.lost-card__icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+
+/* ============================================
+   セクション 05：ミネラルとは？
+============================================ */
+.sec-05 {
+  background: var(--c-sky);
+  position: relative;
+}
+
+.sec-05__inner { text-align: center; }
+
+.sec-05__title {
+  font-family: var(--f-serif);
+  font-size: 28px;
+  color: var(--c-navy);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+
+.sec-05__sub {
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--c-navy);
+  line-height: 2;
+  margin-bottom: 28px;
+}
+
+.sec-05__sub strong {
+  font-size: 16px;
+  color: var(--c-navy);
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.sec-05__photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin: 0 auto 28px;
+  box-shadow: var(--shadow-soft);
+}
+
+.sec-05__photo:nth-of-type(2) {
+  aspect-ratio: 3 / 2;
+}
+
+.sec-05__body {
+  font-size: 13px;
+  color: var(--c-navy);
+  line-height: 2;
+  margin-bottom: 28px;
+}
+
+/* 代表的なミネラル */
+.mineral-list {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  margin-bottom: 28px;
+}
+
+.mineral-list__title {
+  font-family: var(--f-serif);
+  font-size: 14px;
+  color: var(--c-gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 18px;
+}
+
+.mineral-list__items {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.mineral-list__items li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.mineral-list__symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--c-navy);
+  border-radius: 50%;
+  font-family: var(--f-serif);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--c-navy);
+  background: var(--c-cream);
+}
+
+.mineral-list__name {
+  font-size: 10px;
+  color: var(--c-navy);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ハイライト：体内で作れない */
+.sec-05__highlight {
+  background: var(--c-navy);
+  color: var(--c-cream);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.sec-05__highlight p:first-child {
+  font-family: var(--f-serif);
+  font-size: 17px;
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+
+.sec-05__highlight p:first-child strong {
+  color: var(--c-gold-light);
+}
+
+.sec-05__highlight-sub {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--c-sky);
+}
