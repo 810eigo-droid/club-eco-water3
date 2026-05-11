@@ -26,7 +26,7 @@
 <header class="site-header">
   <div class="site-header__inner">
     <div class="site-header__logo">CLUB ECO WATER</div>
-    <a href="#contact" class="site-header__cta">お問い合わせ</a>
+    <a href="https://potapotaclub.jp/newentry/" class="site-header__cta" target="_blank" rel="noopener noreferrer">お申し込み</a>
   </div>
 </header>
 
@@ -547,8 +547,38 @@
       体験・お問い合わせください。
     </p>
 
-    <a href="#" class="cta-button">
-      <span class="cta-button__text">無料体験のお問い合わせ</span>
+    <!-- 紹介者カード（豪華版・CTA直前で「エリ」を強く印象付ける） -->
+    <div class="sec-15__referral">
+      <div class="sec-15__referral-frame">
+        <p class="sec-15__referral-label">
+          <span class="sec-15__referral-line"></span>
+          ご 紹 介 者
+          <span class="sec-15__referral-line"></span>
+        </p>
+
+        <button type="button"
+                class="sec-15__referral-name"
+                id="referralCodeBtn"
+                data-code="エリ"
+                aria-label="紹介者名「エリ」をコピー">
+          <span class="sec-15__referral-name-text">エ&nbsp;リ</span>
+          <span class="sec-15__referral-copy" aria-hidden="true">📋</span>
+        </button>
+
+        <p class="sec-15__referral-instruction">
+          お申し込み時、紹介者欄に<br>
+          <strong>「エリ」</strong> と必ずご入力ください
+        </p>
+
+        <p class="sec-15__referral-warning">
+          ⚠ ご入力がないと、<br>
+          特典が適用されません
+        </p>
+      </div>
+    </div>
+
+    <a href="https://potapotaclub.jp/newentry/" target="_blank" rel="noopener noreferrer" class="cta-button">
+      <span class="cta-button__text">お申し込みはこちら</span>
       <span class="cta-button__arrow">→</span>
     </a>
   </div>
@@ -570,7 +600,7 @@
         <img src="images/16_profile-eri.webp"
              alt="佐々木えり"
              class="profile-card__photo"
-             width="400" height="800">
+             width="800" height="1000">
       </div>
 
       <p class="profile-card__credential">pmc代理店　No.40</p>
@@ -608,13 +638,19 @@
 </footer>
 
 <!-- ========================================
-     フローティングバー（画面下固定CTA）
+     フローティングバー（紹介者「エリ」表示＋CTA統合版）
+     ※スマホ画面を圧迫しない1本仕様
 ======================================== -->
 <a href="https://potapotaclub.jp/newentry/"
    class="floating-bar"
    target="_blank"
    rel="noopener noreferrer">
-  <span class="floating-bar__label">無料体験のお申し込み</span>
+  <span class="floating-bar__id">
+    <span class="floating-bar__id-label">ID</span>
+    <span class="floating-bar__id-value">エリ</span>
+  </span>
+  <span class="floating-bar__divider"></span>
+  <span class="floating-bar__cta-text">お申し込み</span>
   <span class="floating-bar__arrow">→</span>
 </a>
 

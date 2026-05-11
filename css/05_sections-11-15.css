@@ -95,11 +95,11 @@
 
 .sec-12__title {
   font-family: var(--f-serif);
-  font-size: 22px;
+  font-size: 26px;
   color: var(--c-navy);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.6;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   margin-bottom: 28px;
 }
 
@@ -168,11 +168,11 @@
 
 .sec-13__title {
   font-family: var(--f-serif);
-  font-size: 24px;
+  font-size: 28px;
   color: var(--c-navy);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.5;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   margin-bottom: 28px;
 }
 
@@ -349,10 +349,10 @@
 
 .sec-15__title {
   font-family: var(--f-serif);
-  font-size: 26px;
+  font-size: 30px;
   color: var(--c-white);
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   line-height: 1.5;
   margin-bottom: 32px;
 }
@@ -424,10 +424,10 @@
 
 .sec-16__title {
   font-family: var(--f-serif);
-  font-size: 26px;
+  font-size: 30px;
   color: var(--c-navy);
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   line-height: 1.5;
   margin-bottom: 36px;
 }
@@ -565,4 +565,179 @@
   color: var(--c-gold);
   letter-spacing: 0.15em;
   font-style: italic;
+}
+
+
+/* ============================================
+   セクション15内：紹介者カード（豪華版）
+   CTA直前で「エリ」を強く印象付ける
+============================================ */
+.sec-15__referral {
+  margin: 8px 0 28px;
+  position: relative;
+}
+
+.sec-15__referral-frame {
+  background: var(--c-cream);
+  border: 3px double var(--c-gold);
+  border-radius: var(--radius-md);
+  padding: 22px 20px 18px;
+  text-align: center;
+  position: relative;
+  box-shadow:
+    0 10px 32px rgba(0, 0, 0, 0.25),
+    0 0 0 6px rgba(200, 165, 107, 0.15);
+  animation: referralFramePulse 3s ease-in-out infinite;
+}
+
+@keyframes referralFramePulse {
+  0%, 100% {
+    box-shadow:
+      0 10px 32px rgba(0, 0, 0, 0.25),
+      0 0 0 6px rgba(200, 165, 107, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 14px 40px rgba(200, 165, 107, 0.35),
+      0 0 0 8px rgba(200, 165, 107, 0.30);
+  }
+}
+
+/* 四隅にゴールドの装飾コーナー */
+.sec-15__referral-frame::before,
+.sec-15__referral-frame::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--c-gold);
+  pointer-events: none;
+}
+
+.sec-15__referral-frame::before {
+  top: -8px;
+  left: -8px;
+  border-right: none;
+  border-bottom: none;
+  background: var(--c-cream);
+}
+
+.sec-15__referral-frame::after {
+  bottom: -8px;
+  right: -8px;
+  border-left: none;
+  border-top: none;
+  background: var(--c-cream);
+}
+
+/* ─── ご 紹 介 者 ─── ラベル */
+.sec-15__referral-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: var(--f-serif);
+  font-size: 11px;
+  color: var(--c-gold);
+  letter-spacing: 0.35em;
+  font-weight: 500;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+.sec-15__referral-line {
+  width: 28px;
+  height: 1px;
+  background: var(--c-gold);
+}
+
+/* 「エ リ」の大きなボタン */
+.sec-15__referral-name {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px 24px;
+  margin-bottom: 14px;
+  transition: var(--t-fast);
+  font-family: inherit;
+}
+
+.sec-15__referral-name-text {
+  font-family: var(--f-serif);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--c-navy);
+  letter-spacing: 0.18em;
+  padding-left: 0.18em;
+  line-height: 1;
+  text-shadow:
+    0 2px 4px rgba(200, 165, 107, 0.4),
+    0 0 18px rgba(200, 165, 107, 0.15);
+}
+
+.sec-15__referral-copy {
+  font-size: 18px;
+  opacity: 0.55;
+  transition: var(--t-fast);
+}
+
+.sec-15__referral-name:hover {
+  transform: scale(1.04);
+}
+
+.sec-15__referral-name:hover .sec-15__referral-copy {
+  opacity: 1;
+}
+
+.sec-15__referral-name:active {
+  transform: scale(0.98);
+}
+
+.sec-15__referral-name.is-copied .sec-15__referral-name-text::after {
+  content: " ✓ コピー完了";
+  display: inline;
+  font-size: 13px;
+  color: var(--c-gold);
+  margin-left: 10px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.sec-15__referral-name.is-copied .sec-15__referral-copy {
+  opacity: 0;
+}
+
+/* 案内文 */
+.sec-15__referral-instruction {
+  font-family: var(--f-serif);
+  font-size: 13px;
+  color: var(--c-navy);
+  line-height: 1.8;
+  margin-bottom: 14px;
+  letter-spacing: 0.04em;
+}
+
+.sec-15__referral-instruction strong {
+  font-family: var(--f-serif);
+  font-size: 16px;
+  color: var(--c-gold);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+/* 警告文（赤系・強め） */
+.sec-15__referral-warning {
+  font-size: 12px;
+  color: #B84A3C;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  padding-top: 12px;
+  margin-top: 4px;
+  border-top: 1px dashed rgba(184, 74, 60, 0.35);
 }
