@@ -1,0 +1,797 @@
+/* =========================================================
+   06_pc-view.css
+   役割：PC・タブレット用レイアウト（768px以上で適用）
+   ・スマホビューは一切影響なし
+   ・このファイルだけ削除すれば完全にスマホビューに戻ります
+   ・案C 立体アシンメトリー：写真を左右交互配置・微回転・オフセット影
+   ・案B 用途セクションは横並び4列
+   ========================================================= */
+
+
+/* ============================================
+   デフォルト（全画面サイズ）：PC専用FV画像を非表示
+   スマホでは横長画像が表示されないようにする
+============================================ */
+.sec-01__hero--pc {
+  display: none;
+}
+
+
+@media (min-width: 768px) {
+
+/* ============================================
+   全体共通
+============================================ */
+.lp {
+  max-width: 1000px;
+}
+
+/* ============================================
+   セクション01 FV：スマホ縦長⇔PC横長の自動切替
+   ・768px以上で PC用の横長画像 (01_fv-hero-pc.webp) に切替
+   ・PC版を使わない場合：index.htmlの sec-01__hero--pc の img を削除
+============================================ */
+.sec-01__hero--mobile {
+  display: none;
+}
+.sec-01__hero--pc {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.site-header__inner {
+  max-width: 1000px;
+  padding: 16px 40px;
+}
+
+.site-header__logo { font-size: 15px; }
+
+.site-footer__inner {
+  max-width: 1000px;
+  padding: 64px 40px 48px;
+}
+
+/* 見出しを大きく */
+.lp h2 { font-size: 38px; }
+
+/* セクション共通：余裕のあるパディング */
+.sec-02__inner,
+.sec-03__inner,
+.sec-04__inner,
+.sec-05__inner,
+.sec-06__inner,
+.sec-07__inner,
+.sec-08__inner,
+.sec-09__inner,
+.sec-10__inner,
+.sec-11__inner,
+.sec-12__inner,
+.sec-13__inner,
+.sec-14__inner,
+.sec-15__inner,
+.sec-16__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 96px 64px;
+}
+
+/* 写真共通の立体エフェクト用ベース */
+.sec-02__photo,
+.sec-03__photo,
+.sec-04__photo,
+.sec-05__photo,
+.sec-06__photo,
+.sec-07__photo,
+.sec-08__photo-main,
+.sec-10__photo,
+.sec-11__photo,
+.sec-12__photo,
+.sec-13__photo,
+.sec-14__photo {
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+
+/* ============================================
+   セクション02 共感（写真：右）
+============================================ */
+.sec-02__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  align-items: start;
+  text-align: left;
+}
+
+.sec-02 .eyebrow,
+.sec-02__title,
+.sec-02__sub,
+.sec-02__closing {
+  grid-column: 1 / -1;
+  justify-self: center;
+  text-align: center;
+}
+
+.sec-02__title { font-size: 44px; margin-bottom: 18px; }
+.sec-02__sub { font-size: 18px; margin-bottom: 64px; }
+
+.sec-02__photo {
+  grid-column: 2;
+  grid-row: 4;
+  margin: 0;
+  transform: rotate(1deg);
+  box-shadow: -16px 16px 0 var(--c-sky-deep);
+}
+
+.sec-02__photo:hover {
+  transform: rotate(0);
+  box-shadow: 0 16px 40px rgba(30,58,107,0.25);
+}
+
+.sec-02 .checklist {
+  grid-column: 1;
+  grid-row: 4;
+  align-self: center;
+  margin: 0;
+  max-width: 100%;
+}
+
+.sec-02 .checklist li {
+  font-size: 15px;
+  padding: 14px 0 14px 32px;
+}
+
+.sec-02__closing { margin-top: 64px; }
+
+
+/* ============================================
+   セクション03 PFAS（写真：左、ネイビー背景）
+   ・写真は左列で「PFAS…永遠の化学物質…とも呼ばれ」の3行に沿う
+   ・キーワードは文章の流れの中央に
+============================================ */
+.sec-03__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  align-items: start;
+  text-align: left;
+}
+
+/* 上部・下部は全幅で中央寄せ */
+.sec-03 .eyebrow,
+.sec-03__lead,
+.sec-03__title,
+.sec-03__quote,
+.sec-03__close-lead,
+.sec-03__close-keyword,
+.sec-03__close-sub {
+  grid-column: 1 / -1;
+  text-align: center;
+  justify-self: center;
+}
+
+.sec-03__title { font-size: 48px; margin-bottom: 48px; }
+
+/* 写真：左列、3行ぶん（body→keyword→body）に沿って配置 */
+.sec-03__photo {
+  grid-column: 1;
+  grid-row: 4 / span 3;
+  margin: 0;
+  transform: rotate(-1.5deg);
+  box-shadow: 18px 18px 0 rgba(200,165,107,0.35);
+  align-self: center;
+}
+
+.sec-03__photo:hover { transform: rotate(0); }
+
+/* 1つ目の本文「PFAS（有機フッ素化合物）は、」→右列・row4 */
+.sec-03__photo + .sec-03__body {
+  grid-column: 2;
+  grid-row: 4;
+  align-self: end;
+  text-align: center;
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+/* キーワード「"永遠の化学物質"」→右列・row5・1つ目と2つ目の本文の間 */
+.sec-03__keyword {
+  grid-column: 2;
+  grid-row: 5;
+  align-self: center;
+  justify-self: center;
+  margin: 8px auto;
+  font-size: 26px;
+}
+
+/* 2つ目の本文「とも呼ばれ、…」→右列・row6 */
+.sec-03__keyword + .sec-03__body {
+  grid-column: 2;
+  grid-row: 6;
+  align-self: start;
+  text-align: center;
+  font-size: 16px;
+  margin: 8px 0 0;
+}
+
+
+/* ============================================
+   セクション04 ミネラル不足背景（写真：左）
+============================================ */
+.sec-04__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  align-items: start;
+  text-align: left;
+}
+
+.sec-04 .eyebrow,
+.sec-04__lead,
+.sec-04__title {
+  grid-column: 1 / -1;
+  justify-self: center;
+  text-align: center;
+}
+
+.sec-04__title { font-size: 42px; }
+
+.sec-04__photo {
+  grid-column: 1;
+  grid-row: 4 / 6;
+  margin: 32px 0 0;
+  transform: rotate(-1deg);
+  box-shadow: 16px 16px 0 var(--c-mint);
+  align-self: start;
+}
+
+.sec-04__photo:hover { transform: rotate(0); }
+
+.sec-04__reason-title,
+.sec-04__body {
+  grid-column: 2;
+}
+
+.sec-04__reason-title {
+  grid-row: 4;
+  align-self: end;
+  margin: 32px 0 16px;
+  font-size: 20px;
+}
+
+.sec-04__body {
+  grid-row: 5;
+  align-self: start;
+  text-align: left;
+  font-size: 15px;
+}
+
+.lost-card {
+  grid-column: 1 / -1;
+  margin-top: 56px;
+}
+
+.lost-card__grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+/* ============================================
+   セクション05 ミネラルとは（2画像をアシンメトリー配置）
+============================================ */
+.sec-05__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  row-gap: 0;
+  align-items: center;
+  text-align: left;
+}
+
+.sec-05 .eyebrow,
+.sec-05__title,
+.sec-05__sub,
+.sec-05__body {
+  grid-column: 1 / -1;
+  text-align: center;
+  justify-self: center;
+}
+
+.sec-05__title { font-size: 42px; }
+
+.sec-05__photo:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 4;
+  margin: 0;
+  transform: rotate(2deg);
+  box-shadow: -14px 14px 0 var(--c-mint);
+}
+
+.mineral-list {
+  grid-column: 2;
+  grid-row: 4;
+  margin: 0;
+  align-self: center;
+}
+
+.sec-05__body { grid-row: 5; margin: 56px 0; }
+
+.sec-05__photo:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 6;
+  margin: 0;
+  transform: rotate(-1.5deg);
+  box-shadow: 14px 14px 0 var(--c-gold);
+}
+
+.sec-05__highlight {
+  grid-column: 1;
+  grid-row: 6;
+  align-self: center;
+  margin: 0;
+}
+
+
+/* ============================================
+   セクション06 症状（写真：左）
+============================================ */
+.sec-06__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  align-items: start;
+  text-align: left;
+}
+
+.sec-06 .eyebrow,
+.sec-06__title,
+.sec-06__closing {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.sec-06__title { font-size: 34px; }
+
+.sec-06__photo {
+  grid-column: 1;
+  grid-row: 3;
+  margin: 0;
+  transform: rotate(-1deg);
+  box-shadow: 16px 16px 0 var(--c-sky-deep);
+}
+
+.sec-06__photo:hover { transform: rotate(0); }
+
+.symptom-grid {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+/* ============================================
+   セクション07 バランス（写真：右）
+============================================ */
+.sec-07__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  align-items: center;
+  text-align: left;
+}
+
+.sec-07 .eyebrow,
+.sec-07__lead,
+.sec-07__title,
+.sec-07__keyword,
+.sec-07__bridge {
+  grid-column: 1 / -1;
+  text-align: center;
+  justify-self: center;
+}
+
+.sec-07__title { font-size: 40px; }
+
+.sec-07__photo {
+  grid-column: 2;
+  grid-row: 4;
+  margin: 0;
+  transform: rotate(1.5deg);
+  box-shadow: -16px 16px 0 var(--c-mint);
+}
+
+.sec-07__photo:hover { transform: rotate(0); }
+
+.sec-07__body {
+  grid-column: 1;
+  grid-row: 4;
+  align-self: center;
+  font-size: 15px;
+  text-align: left;
+  margin: 0;
+}
+
+
+/* ============================================
+   セクション08 商品紹介
+============================================ */
+.sec-08__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  align-items: start;
+  text-align: left;
+}
+
+.sec-08 .eyebrow,
+.sec-08__title,
+.sec-08__sub,
+.sec-08__manifest {
+  grid-column: 1 / -1;
+  text-align: center;
+  justify-self: center;
+}
+
+.sec-08__title { font-size: 44px; }
+
+.sec-08__photo-main {
+  grid-column: 1;
+  grid-row: 4;
+  margin: 0;
+}
+
+.sec-08__lead-card {
+  grid-column: 2;
+  grid-row: 4;
+  margin: 0;
+  align-self: center;
+}
+
+.sec-08__photo-essence {
+  grid-column: 1 / -1;
+  margin: 48px auto 32px;
+  width: 28%;
+}
+
+
+/* ============================================
+   セクション09 用途（4列横並び！— 案Bの目玉）
+============================================ */
+.sec-09__inner { text-align: center; }
+
+.sec-09__title { font-size: 38px; }
+
+.use-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* 各写真をランダムに微回転 → ポラロイド風 */
+.use-grid__item:nth-child(1) { transform: rotate(-1.2deg); }
+.use-grid__item:nth-child(2) { transform: rotate(1deg); }
+.use-grid__item:nth-child(3) { transform: rotate(-0.6deg); }
+.use-grid__item:nth-child(4) { transform: rotate(1.5deg); }
+
+.use-grid__item {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 8px 20px rgba(30,58,107,0.10);
+}
+
+.use-grid__item:hover {
+  transform: rotate(0) translateY(-10px);
+  z-index: 2;
+  box-shadow: 0 16px 40px rgba(30,58,107,0.20);
+}
+
+.use-extra {
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.use-extra li {
+  font-size: 14px;
+  padding: 12px 24px;
+}
+
+
+/* ============================================
+   セクション10 電源不要
+============================================ */
+.sec-10__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  align-items: center;
+  text-align: left;
+}
+
+.sec-10 .eyebrow,
+.sec-10__title,
+.sec-10__how {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.sec-10__title { font-size: 58px; }
+
+.feature-list {
+  grid-column: 1;
+  grid-row: 3;
+  grid-template-columns: 1fr 1fr;
+  align-self: center;
+}
+
+.sec-10__photo {
+  grid-column: 2;
+  grid-row: 3;
+  margin: 0;
+  transform: rotate(1deg);
+  box-shadow: -12px 12px 0 rgba(200,165,107,0.35);
+}
+
+.sec-10__photo:hover { transform: rotate(0); }
+
+.sec-10__how { margin-top: 48px; }
+
+
+/* ============================================
+   セクション11 PFAS低減（数字主役、写真：左）
+============================================ */
+.sec-11__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  align-items: center;
+  text-align: left;
+}
+
+.sec-11 .eyebrow,
+.sec-11__title,
+.sec-11__lead,
+.sec-11__note {
+  grid-column: 1 / -1;
+  text-align: center;
+  justify-self: center;
+}
+
+.big-number { font-size: 140px; }
+
+.sec-11__photo {
+  grid-column: 1;
+  grid-row: 4;
+  margin: 0;
+  transform: rotate(-1.5deg);
+  box-shadow: 14px 14px 0 var(--c-mint);
+}
+
+.sec-11__photo:hover { transform: rotate(0); }
+
+.sec-11__body {
+  grid-column: 2;
+  grid-row: 4;
+  align-self: center;
+  text-align: left;
+  font-size: 15px;
+}
+
+
+/* ============================================
+   セクション12 お客様の声（写真：右）
+============================================ */
+.sec-12__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  align-items: center;
+  text-align: left;
+}
+
+.sec-12 .eyebrow,
+.sec-12__title,
+.sec-12__intro {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.sec-12__title { font-size: 34px; }
+
+.sec-12__photo {
+  grid-column: 2;
+  grid-row: 4;
+  margin: 0;
+  transform: rotate(2deg);
+  box-shadow: -14px 14px 0 var(--c-gold);
+}
+
+.sec-12__photo:hover { transform: rotate(0); }
+
+.voice-list {
+  grid-column: 1;
+  grid-row: 4;
+  align-self: center;
+  max-width: 100%;
+}
+
+
+/* ============================================
+   セクション13 こんな方に（写真：左）
+============================================ */
+.sec-13__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  align-items: center;
+  text-align: left;
+}
+
+.sec-13 .eyebrow,
+.sec-13__title {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.sec-13__title { font-size: 38px; }
+
+.sec-13__photo {
+  grid-column: 1;
+  grid-row: 3;
+  margin: 0;
+  transform: rotate(-1.5deg);
+  box-shadow: 16px 16px 0 var(--c-sky-deep);
+}
+
+.sec-13__photo:hover { transform: rotate(0); }
+
+.target-list {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: center;
+}
+
+
+/* ============================================
+   セクション14 オファー（サーバー：右、価格：左）
+============================================ */
+.sec-14__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px;
+  align-items: center;
+  text-align: left;
+}
+
+.sec-14 .eyebrow,
+.sec-14__lead,
+.sec-14__title,
+.sec-14__body {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.sec-14__title { font-size: 46px; }
+
+.sec-14__photo {
+  grid-column: 2;
+  grid-row: 4;
+  margin: 0;
+}
+
+.sec-14__price {
+  grid-column: 1;
+  grid-row: 4;
+  margin: 0;
+  align-self: center;
+}
+
+.sec-14__price-new { font-size: 110px; }
+
+
+/* ============================================
+   セクション15 クロージング（中央寄せ・大きく）
+============================================ */
+.sec-15__inner { text-align: center; }
+
+.sec-15__title { font-size: 40px; }
+
+.sec-15__photo {
+  max-width: 500px;
+  margin: 0 auto 32px;
+}
+
+.sec-15__referral-frame {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 40px 28px;
+}
+
+.sec-15__referral-name-text { font-size: 58px; }
+
+.sec-15__referral-instruction { font-size: 15px; }
+.sec-15__referral-warning { font-size: 13px; }
+
+
+/* ============================================
+   セクション16 プロフィール（写真：左、情報：右）
+============================================ */
+.sec-16__inner { text-align: center; }
+
+.sec-16__title { font-size: 38px; }
+
+.profile-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  column-gap: 56px;
+  align-items: center;
+  padding: 56px 56px;
+  text-align: left;
+}
+
+.profile-card__photo-wrap {
+  width: 100%;
+  max-width: 280px;
+  margin: 0;
+  grid-column: 1;
+  grid-row: 1 / -1;
+}
+
+.profile-card__credential,
+.profile-card__name,
+.profile-card__sub,
+.profile-card__divider,
+.profile-card__message,
+.profile-card__signature {
+  grid-column: 2;
+}
+
+.profile-card__credential { font-size: 12px; margin-bottom: 12px; }
+.profile-card__name { font-size: 38px; margin-bottom: 12px; letter-spacing: 0.2em; }
+.profile-card__sub { font-size: 13px; margin-bottom: 28px; }
+.profile-card__divider { margin: 0 0 28px; }
+.profile-card__message { font-size: 15px; margin-bottom: 24px; }
+.profile-card__signature { font-size: 20px; text-align: left; }
+
+
+/* ============================================
+   フローティングバー（PCでも表示・同じ動作）
+============================================ */
+.floating-bar {
+  bottom: 20px;
+  max-width: 460px;
+}
+
+
+/* ============================================
+   装飾の調整（PCでは少し大きく派手に）
+============================================ */
+.sec-02::before,
+.sec-04::before,
+.sec-07::before,
+.sec-08::before,
+.sec-09::before,
+.sec-11::before,
+.sec-14::before,
+.sec-16::before {
+  top: 80px;
+  right: 40px;
+  width: 80px;
+  height: 110px;
+}
+
+.sec-02::after,
+.sec-04::after,
+.sec-07::after,
+.sec-08::after,
+.sec-09::after,
+.sec-11::after,
+.sec-14::after,
+.sec-16::after {
+  bottom: 80px;
+  left: 40px;
+  width: 90px;
+  height: 90px;
+}
+
+
+} /* end @media min-width 768px */

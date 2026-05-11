@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="css/03_sections-01-05.css">
 <link rel="stylesheet" href="css/04_sections-06-10.css">
 <link rel="stylesheet" href="css/05_sections-11-15.css">
+<link rel="stylesheet" href="css/06_pc-view.css"><!-- ←PC用（768px以上で有効）削除すればスマホビューのみ -->
 </head>
 <body>
 
@@ -34,13 +35,20 @@
 
 <!-- ========================================
      セクション 01 ：ファーストビュー（FV）
-     ※完成画像 01_fv-hero.webp を1枚だけ配置
+     ※スマホ：縦長 01_fv-hero.webp
+     ※PC（768px以上）：横長 01_fv-hero-pc.webp に自動切替
+     PC版を使わない場合は、下の sec-01__hero--pc の img タグを削除すればOK
 ======================================== -->
 <section class="sec-01">
   <img src="images/01_fv-hero.webp"
        alt="毎日飲むその水で、本当に身体は喜んでいますか？"
-       class="sec-01__hero"
+       class="sec-01__hero sec-01__hero--mobile"
        width="1080" height="1920">
+
+  <img src="images/01_fv-hero-pc.webp"
+       alt="毎日飲むその水で、本当に身体は喜んでいますか？"
+       class="sec-01__hero sec-01__hero--pc"
+       width="1920" height="1080">
 </section>
 
 
