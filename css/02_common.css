@@ -313,27 +313,31 @@ img.reveal {
   transform: translateX(-50%) translateY(-2px);
 }
 
-/* 左：ID:エリ 小さく表示 */
-.floating-bar__id {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
+/* 左：申込ID＋紹介者を2行で小さく表示
+   ※ floating-bar__info-line を display:block にして
+     確実に2行になる仕組み */
+.floating-bar__info {
+  display: inline-block;
   font-family: var(--f-serif);
+  line-height: 1.3;
+  padding-right: 6px;
+  text-align: left;
+}
+
+.floating-bar__info-line {
+  display: block;
   white-space: nowrap;
-}
-
-.floating-bar__id-label {
   font-size: 10px;
-  color: var(--c-gold-light);
-  letter-spacing: 0.2em;
-  font-weight: 500;
+  color: rgba(245, 232, 220, 0.9);
+  letter-spacing: 0.05em;
 }
 
-.floating-bar__id-value {
-  font-size: 16px;
+.floating-bar__info-line b {
   color: var(--c-gold-light);
   font-weight: 700;
-  letter-spacing: 0.15em;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  margin-left: 2px;
 }
 
 .floating-bar__divider {

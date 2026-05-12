@@ -741,3 +741,49 @@
   margin-top: 4px;
   border-top: 1px dashed rgba(184, 74, 60, 0.35);
 }
+
+
+/* セクション15内：申込ID表示 */
+.sec-15__referral-id {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 12px;
+  margin: 4px auto 16px;
+  padding: 8px 22px;
+  background: var(--c-navy);
+  border-radius: 999px;
+  border: 1px solid var(--c-gold);
+}
+
+.sec-15__referral-id-label {
+  font-family: var(--f-serif);
+  font-size: 11px;
+  color: var(--c-gold-light);
+  letter-spacing: 0.25em;
+  font-weight: 500;
+}
+
+.sec-15__referral-id-value {
+  font-family: 'SF Mono', 'Menlo', monospace, var(--f-serif);
+  font-size: 18px;
+  color: var(--c-cream);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+/* 「ササキエリ」表記用にサイズ調整（5文字を1行に収める） */
+.sec-15__referral-name-text {
+  font-size: 26px;
+  letter-spacing: 0.08em;
+}
+
+@media (min-width: 768px) {
+  .sec-15__referral-name-text {
+    font-size: 40px;
+    letter-spacing: 0.1em;
+  }
+  .sec-15__referral-id-value {
+    font-size: 22px;
+  }
+}
