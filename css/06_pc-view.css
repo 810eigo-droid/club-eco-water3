@@ -20,10 +20,38 @@
 @media (min-width: 768px) {
 
 /* ============================================
+   PC用：スクロールで body 背景を切り替え
+   ・デフォルト（01〜05表示中）→ pc-bg1.webp
+   ・06〜10 表示中 → pc-bg2.webp（JSで body.bg-group-2 が付く）
+   ・11〜16 表示中 → pc-bg3.webp（JSで body.bg-group-3 が付く）
+   ・LP本体の左右に画像が広がる
+   ・切替時はクロスフェード風のトランジション
+============================================ */
+body {
+  background-image: url('../images/pc-bg2.webp');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+}
+
+body.bg-group-2 {
+  background-image: url('../images/pc-bg1.webp');
+}
+
+body.bg-group-3 {
+  background-image: url('../images/pc-bg3.webp');
+}
+
+/* ============================================
    全体共通
 ============================================ */
 .lp {
   max-width: 1000px;
+  /* LP本体の背景が透けないようにクリーム色を明示 */
+  background-color: var(--c-cream);
+  box-shadow: 0 0 60px rgba(30, 58, 107, 0.15);
 }
 
 /* ============================================

@@ -80,4 +80,84 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.removeChild(ta);
   }
 
+
+  /* ---- PCのみ：スクロール位置に応じてbody背景を切替 ---- */
+  /* 01〜05 → bg1 / 06〜10 → bg2 / 11〜16 → bg3 */
+  function setupScrollBackground() {
+    // スマホサイズなら何もしない
+    if (window.innerWidth < 768) return;
+
+    const group2Sections = ['sec-06', 'sec-07', 'sec-08', 'sec-09', 'sec-10'];
+    const group3Sections = ['sec-11', 'sec-12', 'sec-13', 'sec-14', 'sec-15', 'sec-16'];
+
+    // 各セクションのDOM要素を取得
+    const group2Elements = group2Sections
+      .map(cls => document.querySelector('.' + cls))
+      .filter(el => el !== null);
+    const group3Elements = group3Sections
+      .map(cls => document.querySelector('.' + cls))
+      .filter(el => el !== null);
+
+    if (group2Elements.length === 0 && group3Elements.length === 0) return;
+
+    const body = document.body;
+
+    // どのグループに属するかチェック
+    function updateBackground() {
+      const triggerY = window.innerHeight * 0.35; // 画面上から35%地点で判定
+
+      // どのセクションが画面の上部に来ているかチェック
+      let currentGroup = 1;
+
+      // group3 のいずれかが画面上部に達していたら group3
+      for (const el of group3Elements) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= triggerY) {
+          currentGroup = 3;
+        }
+      }
+
+      // group3 でなければ group2 をチェック
+      if (currentGroup === 1) {
+        for (const el of group2Elements) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= triggerY) {
+            currentGroup = 2;
+          }
+        }
+      }
+
+      // クラスを更新
+      body.classList.remove('bg-group-2', 'bg-group-3');
+      if (currentGroup === 2) body.classList.add('bg-group-2');
+      else if (currentGroup === 3) body.classList.add('bg-group-3');
+    }
+
+    // スクロール時に呼び出し（throttle で軽量化）
+    let scrollTicking = false;
+    window.addEventListener('scroll', function () {
+      if (!scrollTicking) {
+        requestAnimationFrame(function () {
+          updateBackground();
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    });
+
+    // 初期実行
+    updateBackground();
+  }
+
+  setupScrollBackground();
+
+  // ウィンドウリサイズ時にも対応
+  window.addEventListener('resize', function () {
+    if (window.innerWidth < 768) {
+      document.body.classList.remove('bg-group-2', 'bg-group-3');
+    } else {
+      setupScrollBackground();
+    }
+  });
+
 });
