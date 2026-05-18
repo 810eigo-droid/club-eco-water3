@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="css/04_sections-06-10.css">
 <link rel="stylesheet" href="css/05_sections-11-15.css">
 <link rel="stylesheet" href="css/06_pc-view.css"><!-- ←PC用（768px以上で有効）削除すればスマホビューのみ -->
+<link rel="stylesheet" href="css/07_cost-sections.css"><!-- ←コスト比較セクション2箇所 -->
 </head>
 <body>
 
@@ -49,6 +50,67 @@
        alt="毎日飲むその水で、本当に身体は喜んでいますか？"
        class="sec-01__hero sec-01__hero--pc"
        width="1920" height="1080">
+</section>
+
+
+<!-- ========================================
+     セクション 01b ：コスト比較【ダイジェスト版】
+     ※FV直後・冒頭インパクト用
+     ※数字を変える場合：下の data部分を編集するだけ
+======================================== -->
+<section class="sec-01b reveal">
+  <div class="sec-01b__inner">
+    <p class="sec-01b__eyebrow">— COST —</p>
+    <h2 class="sec-01b__title">その水、<em>年間いくら</em>？</h2>
+    <p class="sec-01b__subtitle">毎日のことだから、差は驚くほど大きい。</p>
+
+    <div class="sec-01b__compare">
+      <!-- コンビニ -->
+      <div class="sec-01b__row sec-01b__row--konbini">
+        <span class="sec-01b__row-badge sec-01b__row-badge--high">高い…</span>
+        <span class="sec-01b__row-label">コンビニのお水</span>
+        <img src="images/cost-digest-konbini.webp"
+             alt="コンビニのペットボトル水"
+             class="sec-01b__row-photo"
+             width="600" height="600">
+        <p class="sec-01b__row-mineral">ミネラル <b>4〜6種類</b></p>
+        <p class="sec-01b__row-price">
+          <span class="sec-01b__row-price-num">48,000</span><span class="sec-01b__row-price-yen">円</span>
+          <span class="sec-01b__row-price-unit">家族4人・1ヶ月（240L）</span>
+        </p>
+      </div>
+
+      <div class="sec-01b__vs"><span>VS</span></div>
+
+      <!-- ECO -->
+      <div class="sec-01b__row sec-01b__row--eco">
+        <span class="sec-01b__row-badge sec-01b__row-badge--low">こんなに安い！</span>
+        <span class="sec-01b__row-label">CLUB ECO WATER</span>
+        <img src="images/cost-digest-eco.webp"
+             alt="CLUB ECO WATER サーバー"
+             class="sec-01b__row-photo"
+             width="600" height="600">
+        <p class="sec-01b__row-mineral">ミネラル <b>30種類以上</b></p>
+        <p class="sec-01b__row-price">
+          <span class="sec-01b__row-price-num">7,500</span><span class="sec-01b__row-price-yen">円</span>
+          <span class="sec-01b__row-price-unit">同条件（300Lつくれる）</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="sec-01b__savings">
+      <p class="sec-01b__savings-label">＼ つまり1ヶ月で ／</p>
+      <p class="sec-01b__savings-num">40,500<small>円</small> ダウン</p>
+      <p class="sec-01b__savings-sub">年間にすると 約 486,000円 の差</p>
+    </div>
+
+    <p class="sec-01b__more">
+      くわしい計算はこの先で
+      <span class="sec-01b__more-arrow">▼</span>
+    </p>
+  </div>
+
+  <div class="wave-divider wave-divider--bottom wave-divider--up-cream"></div>
 </section>
 
 
@@ -129,7 +191,7 @@
     <h2 class="sec-04__title">
       <span class="marker">「ミネラル不足」</span>
     </h2>
-    <!--<p class="sec-04__lead"s>と言われています。</p>-->
+    <p class="sec-04__lead">と言われています。</p>
 
     <img src="images/04_modern-life.webp"
          alt="現代の食卓と農業のイメージ"
@@ -495,6 +557,121 @@
 
 
 <!-- ========================================
+     セクション 13b ：コスト比較【詳細版】
+     ※セクション14（オファー）の直前・計算根拠で畳み掛け
+     ※数字を変える場合：下の各 value を編集するだけ
+======================================== -->
+<section class="sec-13b reveal">
+  <div class="sec-13b__inner">
+    <p class="sec-13b__eyebrow">— REAL COST —</p>
+    <h2 class="sec-13b__title">水を変えるだけで<br><em>家計が変わる</em>。</h2>
+    <p class="sec-13b__subtitle">具体的な数字で見てみましょう。</p>
+
+    <div class="sec-13b__calc">
+      <!-- コンビニ計算カード -->
+      <div class="sec-13b__calc-card sec-13b__calc-card--konbini">
+        <div class="sec-13b__calc-head">
+          <img src="images/cost-detail-konbini.webp"
+               alt="エコバッグいっぱいのペットボトル水"
+               class="sec-13b__calc-photo"
+               width="800" height="800">
+          <div class="sec-13b__calc-titlewrap">
+            <p class="sec-13b__calc-name">コンビニのお水</p>
+            <p class="sec-13b__calc-mineral">ミネラル 4〜6種類</p>
+          </div>
+        </div>
+
+        <div class="sec-13b__calc-steps">
+          <div class="sec-13b__calc-step">
+            <span class="sec-13b__calc-step-label">1人 1日 2L</span>
+            <span class="sec-13b__calc-step-value">約 400円</span>
+          </div>
+          <div class="sec-13b__calc-step">
+            <span class="sec-13b__calc-step-label">1人 30日</span>
+            <span class="sec-13b__calc-step-value">12,000円</span>
+          </div>
+          <div class="sec-13b__calc-step">
+            <span class="sec-13b__calc-step-label">家族4人（240L）</span>
+            <span class="sec-13b__calc-step-value">48,000円</span>
+          </div>
+        </div>
+
+        <div class="sec-13b__calc-total">
+          <p class="sec-13b__calc-total-label">1ヶ月あたり</p>
+          <p class="sec-13b__calc-total-num">48,000<small>円</small></p>
+          <span class="sec-13b__calc-total-unit">年間 576,000円</span>
+        </div>
+      </div>
+
+      <div class="sec-13b__vs">
+        <span class="sec-13b__vs-line"></span>
+        <span class="sec-13b__vs-mark">VS</span>
+        <span class="sec-13b__vs-line"></span>
+      </div>
+
+      <!-- ECO計算カード -->
+      <div class="sec-13b__calc-card sec-13b__calc-card--eco">
+        <div class="sec-13b__calc-head">
+          <img src="images/cost-detail-eco.webp"
+               alt="CLUB ECO WATER サーバーから注がれる水"
+               class="sec-13b__calc-photo"
+               width="800" height="800">
+          <div class="sec-13b__calc-titlewrap">
+            <p class="sec-13b__calc-name">CLUB ECO WATER</p>
+            <p class="sec-13b__calc-mineral">ミネラル 30種類以上</p>
+          </div>
+        </div>
+
+        <div class="sec-13b__calc-steps">
+          <div class="sec-13b__calc-step">
+            <span class="sec-13b__calc-step-label">つくれる量</span>
+            <span class="sec-13b__calc-step-value">300L</span>
+          </div>
+          <div class="sec-13b__calc-step">
+            <span class="sec-13b__calc-step-label">用途</span>
+            <span class="sec-13b__calc-step-value">飲料・料理・他</span>
+          </div>
+          <div class="sec-13b__calc-step">
+            <span class="sec-13b__calc-step-label">家族4人でも</span>
+            <span class="sec-13b__calc-step-value">7,500円</span>
+          </div>
+        </div>
+
+        <div class="sec-13b__calc-total">
+          <p class="sec-13b__calc-total-label">1ヶ月あたり</p>
+          <p class="sec-13b__calc-total-num">7,500<small>円</small></p>
+          <span class="sec-13b__calc-total-unit">年間 90,000円</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-13b__result">
+      <p class="sec-13b__result-label">＼ 1ヶ月のコスト ／</p>
+      <p class="sec-13b__result-main">
+        <span class="from">48,000円</span>
+        <span class="arrow">▼ ▼ ▼</span>
+        <span class="to">7,500<small>円</small></span>
+      </p>
+      <div class="sec-13b__result-savings">
+        年間 約 <small>486,000円</small> の節約！
+      </div>
+      <p class="sec-13b__result-note">
+        ※ コンビニ水2L＝約200円／日（1人2L想定）で算出した目安です。<br>
+        ご家庭の使用量により金額は変動します。
+      </p>
+    </div>
+
+    <div class="sec-13b__family">
+      <img src="images/cost-detail-family.webp"
+           alt="水を使って暮らす4人家族"
+           width="1080" height="720">
+      <p class="sec-13b__family-caption">浮いたお金で、もっと豊かな毎日を。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========================================
      セクション 14 ：オファー（常温サーバー無料）
 ======================================== -->
 <section class="sec-14 reveal" id="offer">
@@ -660,7 +837,7 @@
    target="_blank"
    rel="noopener noreferrer">
   <span class="floating-bar__info">
-    <span class="floating-bar__info-line">申込ID&nbsp;&nbsp;<b>442981</b></span>
+    <span class="floating-bar__info-line">申し込みID&nbsp;&nbsp;<b>442981</b></span>
     <span class="floating-bar__info-line">紹介者&nbsp;&nbsp;<b>ササキエリ</b></span>
   </span>
   <span class="floating-bar__divider"></span>

@@ -1,0 +1,778 @@
+/* =========================================================
+   07_cost-sections.css
+   役割：コスト比較セクション（2箇所）
+   ・sec-01b：FV直後の【ダイジェスト版】数字ドーン
+   ・sec-13b：セクション14前の【詳細版】VS対決＋計算根拠
+   ・スマホ優先設計。PCは末尾の @media で調整
+   ・数字を変えたい時は index.html の該当箇所を編集するだけ
+   ========================================================= */
+
+
+/* =========================================================
+   【ダイジェスト版】sec-01b（FV直後）
+   ========================================================= */
+.sec-01b {
+  position: relative;
+  background:
+    linear-gradient(165deg, #FFFDF7 0%, #FBF1DC 40%, #F5E4C0 100%);
+  padding: 56px 24px 64px;
+  overflow: hidden;
+}
+
+/* 背景の光彩（ゴールドの艶） */
+.sec-01b::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(255,250,235,0.55) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.sec-01b::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(200,165,107,0.30) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* 上下に上品なゴールドの罫線 */
+.sec-01b__inner::before,
+.sec-01b__inner::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--c-navy), transparent);
+  opacity: 0.4;
+}
+
+.sec-01b__inner::before { margin-bottom: 28px; }
+.sec-01b__inner::after { margin-top: 8px; }
+
+.sec-01b__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sec-01b__eyebrow {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--c-navy);
+  margin-bottom: 14px;
+  font-weight: 700;
+  opacity: 0.65;
+}
+
+.sec-01b__title {
+  font-family: var(--f-serif);
+  font-size: 26px;
+  color: var(--c-navy);
+  line-height: 1.5;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.sec-01b__title em {
+  font-style: normal;
+  color: #A87B2E;
+  position: relative;
+}
+
+.sec-01b__subtitle {
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--c-navy);
+  opacity: 0.7;
+  margin-bottom: 36px;
+  letter-spacing: 0.05em;
+}
+
+/* 数字の対比ブロック */
+.sec-01b__compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 28px;
+}
+
+.sec-01b__row {
+  position: relative;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: var(--radius-md);
+  padding: 22px 20px;
+  box-shadow: 0 6px 18px rgba(120,90,40,0.12);
+}
+
+/* インパクトバッジ（差し色） */
+.sec-01b__row-badge {
+  position: absolute;
+  top: -14px;
+  right: 16px;
+  z-index: 3;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  font-weight: 800;
+  padding: 7px 18px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transform: rotate(3deg);
+}
+
+.sec-01b__row-badge--high {
+  background: linear-gradient(135deg, #E14B3C 0%, #C5392B 100%);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(225,75,60,0.45);
+}
+
+.sec-01b__row-badge--low {
+  background: linear-gradient(135deg, #D9A441 0%, #C8973A 100%);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(200,165,107,0.55);
+  font-size: 14px;
+  animation: badgePop 1.6s ease-in-out infinite;
+}
+
+@keyframes badgePop {
+  0%, 100% { transform: rotate(3deg) scale(1); }
+  50% { transform: rotate(3deg) scale(1.07); }
+}
+
+.sec-01b__row--konbini {
+  border-color: rgba(225,75,60,0.3);
+}
+
+.sec-01b__row--eco {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF9EE 100%);
+  border: 2px solid var(--c-gold);
+  box-shadow: 0 8px 28px rgba(200,165,107,0.35);
+}
+
+.sec-01b__row-label {
+  display: inline-block;
+  font-family: var(--f-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.sec-01b__row--konbini .sec-01b__row-label {
+  background: rgba(200,120,110,0.18);
+  color: #B5564A;
+}
+
+.sec-01b__row--eco .sec-01b__row-label {
+  background: var(--c-gold);
+  color: var(--c-navy);
+}
+
+.sec-01b__row-photo {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin: 0 auto 16px;
+  display: block;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 6px 18px rgba(120,90,40,0.18);
+}
+
+.sec-01b__row-mineral {
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: var(--c-navy);
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.sec-01b__row-mineral b {
+  color: var(--c-navy);
+  opacity: 1;
+  font-size: 14px;
+}
+
+.sec-01b__row-price {
+  font-family: var(--f-serif);
+  line-height: 1.1;
+}
+
+.sec-01b__row-price-num {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.sec-01b__row--konbini .sec-01b__row-price-num {
+  color: #D63A2B;
+}
+
+.sec-01b__row--eco .sec-01b__row-price-num {
+  color: #B5832E;
+  font-size: 56px;
+}
+
+.sec-01b__row-price-yen {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sec-01b__row-price-unit {
+  display: block;
+  font-family: var(--f-sans);
+  font-size: 11px;
+  color: var(--c-navy);
+  opacity: 0.55;
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+}
+
+/* VS マーク */
+.sec-01b__vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.sec-01b__vs span {
+  font-family: var(--f-serif);
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #E14B3C 0%, #C5392B 100%);
+  border: 3px solid #fff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+  box-shadow: 0 6px 16px rgba(225,75,60,0.4);
+}
+
+/* 節約額の帯（ゴールド基調・紺は不使用） */
+.sec-01b__savings {
+  background: linear-gradient(135deg, #C8973A 0%, #B5832E 100%);
+  border: 2px solid #FFF3DC;
+  border-radius: var(--radius-md);
+  padding: 24px 18px;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 28px rgba(200,165,107,0.4);
+}
+
+.sec-01b__savings-label {
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: #FFF3DC;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.sec-01b__savings-num {
+  font-family: var(--f-serif);
+  font-size: 42px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(120,80,20,0.3);
+}
+
+.sec-01b__savings-num small {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.sec-01b__savings-sub {
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: rgba(255,250,235,0.9);
+  margin-top: 8px;
+  letter-spacing: 0.05em;
+}
+
+/* 「詳しくは下で」誘導 */
+.sec-01b__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--c-navy);
+  opacity: 0.75;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  animation: costBounce 2s ease-in-out infinite;
+}
+
+.sec-01b__more-arrow {
+  font-size: 16px;
+  color: #A87B2E;
+}
+
+@keyframes costBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+
+/* =========================================================
+   【詳細版】sec-13b（セクション14前）
+   ========================================================= */
+.sec-13b {
+  position: relative;
+  background: var(--c-cream);
+  padding: 72px 24px 80px;
+  overflow: hidden;
+}
+
+.sec-13b__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.sec-13b__eyebrow {
+  font-family: var(--f-sans);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--c-gold);
+  text-align: center;
+  margin-bottom: 14px;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.sec-13b__title {
+  font-family: var(--f-serif);
+  font-size: 28px;
+  color: var(--c-navy);
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.sec-13b__title em {
+  font-style: normal;
+  color: var(--c-gold);
+  font-size: 1.15em;
+}
+
+.sec-13b__subtitle {
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--c-navy);
+  text-align: center;
+  opacity: 0.7;
+  margin-bottom: 44px;
+  letter-spacing: 0.05em;
+}
+
+/* 計算ステップ */
+.sec-13b__calc {
+  margin-bottom: 40px;
+}
+
+.sec-13b__calc-card {
+  background: var(--c-white);
+  border-radius: var(--radius-md);
+  padding: 28px 22px;
+  box-shadow: 0 6px 20px rgba(30,58,107,0.08);
+  margin-bottom: 20px;
+}
+
+.sec-13b__calc-card--konbini {
+  border-top: 4px solid #C8786E;
+}
+
+.sec-13b__calc-card--eco {
+  border-top: 4px solid var(--c-gold);
+  background: linear-gradient(180deg, #FFFDF9 0%, #FBF3E6 100%);
+}
+
+.sec-13b__calc-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.sec-13b__calc-photo {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.sec-13b__calc-titlewrap {
+  text-align: left;
+}
+
+.sec-13b__calc-name {
+  font-family: var(--f-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-navy);
+  margin-bottom: 2px;
+}
+
+.sec-13b__calc-mineral {
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: var(--c-navy);
+  opacity: 0.65;
+}
+
+.sec-13b__calc-card--eco .sec-13b__calc-name {
+  color: var(--c-gold);
+}
+
+.sec-13b__calc-steps {
+  font-family: var(--f-sans);
+}
+
+.sec-13b__calc-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(30,58,107,0.12);
+  font-size: 13px;
+  color: var(--c-navy);
+}
+
+.sec-13b__calc-step:last-child {
+  border-bottom: none;
+}
+
+.sec-13b__calc-step-label {
+  opacity: 0.75;
+}
+
+.sec-13b__calc-step-value {
+  font-family: var(--f-serif);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.sec-13b__calc-total {
+  margin-top: 16px;
+  padding-top: 18px;
+  border-top: 2px solid rgba(30,58,107,0.1);
+  text-align: center;
+}
+
+.sec-13b__calc-total-label {
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: var(--c-navy);
+  opacity: 0.7;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+
+.sec-13b__calc-total-num {
+  font-family: var(--f-serif);
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.sec-13b__calc-card--konbini .sec-13b__calc-total-num {
+  color: #C8786E;
+}
+
+.sec-13b__calc-card--eco .sec-13b__calc-total-num {
+  color: var(--c-gold);
+  font-size: 46px;
+}
+
+.sec-13b__calc-total-num small {
+  font-size: 0.5em;
+  font-weight: 700;
+}
+
+.sec-13b__calc-total-unit {
+  display: block;
+  font-family: var(--f-sans);
+  font-size: 11px;
+  color: var(--c-navy);
+  opacity: 0.55;
+  margin-top: 4px;
+}
+
+/* VS区切り */
+.sec-13b__vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 4px 0 20px;
+}
+
+.sec-13b__vs-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(30,58,107,0.15);
+}
+
+.sec-13b__vs-mark {
+  font-family: var(--f-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-cream);
+  background: var(--c-navy);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* 節約額の畳み掛け */
+.sec-13b__result {
+  background: linear-gradient(150deg, var(--c-navy) 0%, #16305C 100%);
+  border-radius: var(--radius-lg, 20px);
+  padding: 40px 26px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(30,58,107,0.25);
+}
+
+.sec-13b__result::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(200,165,107,0.2) 0%, transparent 70%);
+}
+
+.sec-13b__result-label {
+  position: relative;
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--c-gold-light);
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.sec-13b__result-main {
+  position: relative;
+  font-family: var(--f-serif);
+  color: var(--c-cream);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.sec-13b__result-main .from {
+  font-size: 20px;
+  text-decoration: line-through;
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.sec-13b__result-main .arrow {
+  display: block;
+  font-size: 18px;
+  color: var(--c-gold-light);
+  margin: 2px 0;
+}
+
+.sec-13b__result-main .to {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--c-gold-light);
+  display: block;
+}
+
+.sec-13b__result-main .to small {
+  font-size: 0.45em;
+  font-weight: 700;
+}
+
+.sec-13b__result-savings {
+  position: relative;
+  display: inline-block;
+  margin-top: 18px;
+  padding: 14px 28px;
+  background: var(--c-gold);
+  border-radius: 999px;
+  font-family: var(--f-serif);
+  color: var(--c-navy);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.03em;
+  box-shadow: 0 6px 18px rgba(200,165,107,0.4);
+}
+
+.sec-13b__result-savings small {
+  font-size: 0.7em;
+}
+
+.sec-13b__result-note {
+  position: relative;
+  font-family: var(--f-sans);
+  font-size: 11px;
+  color: rgba(245,232,220,0.55);
+  margin-top: 20px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+
+/* 家族写真の帯 */
+.sec-13b__family {
+  margin-top: 36px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+}
+
+.sec-13b__family img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.sec-13b__family-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(30,58,107,0.85) 0%, transparent 100%);
+  color: var(--c-cream);
+  font-family: var(--f-serif);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  padding: 32px 20px 16px;
+  letter-spacing: 0.05em;
+}
+
+
+/* =========================================================
+   PC調整（768px以上）
+   ========================================================= */
+@media (min-width: 768px) {
+
+  /* ダイジェスト版：横並び対決に */
+  .sec-01b {
+    padding: 80px 48px 88px;
+  }
+
+  .sec-01b__inner {
+    max-width: 900px;
+  }
+
+  .sec-01b__title { font-size: 36px; }
+  .sec-01b__subtitle { font-size: 15px; margin-bottom: 48px; }
+
+  .sec-01b__compare {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .sec-01b__row {
+    flex: 1;
+  }
+
+  .sec-01b__row--konbini {
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+  }
+
+  .sec-01b__row--eco {
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+
+  .sec-01b__vs {
+    padding: 0;
+    width: 0;
+    z-index: 2;
+  }
+
+  .sec-01b__vs span {
+    margin: 0 -24px;
+  }
+
+  .sec-01b__row-photo {
+    width: 100%;
+    height: 240px;
+  }
+
+  .sec-01b__row-price-num { font-size: 64px; }
+  .sec-01b__row--eco .sec-01b__row-price-num { font-size: 80px; }
+
+  .sec-01b__savings-num { font-size: 60px; }
+
+  /* 詳細版：2カラム計算カード */
+  .sec-13b {
+    padding: 100px 48px 110px;
+  }
+
+  .sec-13b__inner {
+    max-width: 920px;
+  }
+
+  .sec-13b__title { font-size: 40px; }
+
+  .sec-13b__calc {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .sec-13b__calc-card {
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .sec-13b__vs {
+    flex-direction: column;
+    width: 44px;
+    margin: 0;
+    align-self: center;
+  }
+
+  .sec-13b__vs-line {
+    width: 1px;
+    height: auto;
+    flex: 1;
+  }
+
+  .sec-13b__result-main .to { font-size: 72px; }
+
+  .sec-13b__result {
+    padding: 56px 40px;
+  }
+
+  .sec-13b__family-caption {
+    font-size: 18px;
+  }
+}
