@@ -530,7 +530,7 @@
   .sec-13b__image {
     width: 100%;
     max-width: 720px;
-    margin-left: auto;
+    margin: 0 auto;
     transform: none;
   }
   .sec-13b__cta {
