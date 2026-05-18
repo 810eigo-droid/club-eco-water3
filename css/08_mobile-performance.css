@@ -61,6 +61,11 @@
     animation: mobileSoftPulse 2.6s ease-in-out infinite !important;
   }
 
+  /* 「500ml100円」想像誘導の矢印：translateYは重いのでopacityのみに軽量化 */
+  .sec-01b__imagine-arrow {
+    animation: mobileSoftPulse 1.8s ease-in-out infinite !important;
+  }
+
   @keyframes mobileSoftPulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.88; }

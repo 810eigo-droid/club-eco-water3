@@ -28,7 +28,7 @@
    ・切替時はクロスフェード風のトランジション
 ============================================ */
 body {
-  background-image: url('../images/pc-bg2.webp');
+  background-image: url('../images/pc-bg1.webp');
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -37,7 +37,7 @@ body {
 }
 
 body.bg-group-2 {
-  background-image: url('../images/pc-bg1.webp');
+  background-image: url('../images/pc-bg2.webp');
 }
 
 body.bg-group-3 {
@@ -141,8 +141,9 @@ body.bg-group-3 {
   text-align: center;
 }
 
-.sec-02__title { font-size: 44px; margin-bottom: 18px; }
-.sec-02__sub { font-size: 18px; margin-bottom: 64px; }
+.sec-02 .eyebrow { grid-row: 1; }
+.sec-02__title { grid-row: 2; font-size: 44px; margin-bottom: 18px; }
+.sec-02__sub { grid-row: 3; font-size: 18px; margin-bottom: 64px; }
 
 .sec-02__photo {
   grid-column: 2;
@@ -170,7 +171,7 @@ body.bg-group-3 {
   padding: 14px 0 14px 32px;
 }
 
-.sec-02__closing { margin-top: 64px; }
+.sec-02__closing { grid-row: 5; margin-top: 64px; }
 
 
 /* ============================================
@@ -373,13 +374,13 @@ body.bg-group-3 {
 }
 
 .sec-06 .eyebrow,
-.sec-06__title,
-.sec-06__closing {
+.sec-06__title {
   grid-column: 1 / -1;
   text-align: center;
 }
 
-.sec-06__title { font-size: 34px; }
+.sec-06 .eyebrow { grid-row: 1; }
+.sec-06__title { grid-row: 2; font-size: 34px; }
 
 .sec-06__photo {
   grid-column: 1;
@@ -396,6 +397,14 @@ body.bg-group-3 {
   grid-row: 3;
   align-self: center;
   grid-template-columns: 1fr 1fr;
+}
+
+/* closing文は写真・症状グリッドの下に明示配置（重なり防止） */
+.sec-06__closing {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  text-align: center;
+  margin-top: 48px;
 }
 
 
@@ -420,11 +429,14 @@ body.bg-group-3 {
   justify-self: center;
 }
 
-.sec-07__title { font-size: 40px; }
+.sec-07 .eyebrow { grid-row: 1; }
+.sec-07__lead { grid-row: 2; }
+.sec-07__title { grid-row: 3; font-size: 40px; }
 
 .sec-07__photo {
   grid-column: 2;
-  grid-row: 4;
+  grid-row: 4 / 7;
+  align-self: center;
   margin: 0;
   transform: rotate(1.5deg);
   box-shadow: -16px 16px 0 var(--c-mint);
@@ -432,13 +444,35 @@ body.bg-group-3 {
 
 .sec-07__photo:hover { transform: rotate(0); }
 
-.sec-07__body {
+/* 左カラム：body → keyword → body を縦に */
+.sec-07__body:nth-of-type(1) {
   grid-column: 1;
   grid-row: 4;
-  align-self: center;
+  align-self: end;
   font-size: 15px;
   text-align: left;
   margin: 0;
+}
+
+.sec-07__keyword {
+  grid-column: 1;
+  grid-row: 5;
+  justify-self: center;
+  align-self: center;
+}
+
+.sec-07__body:nth-of-type(2) {
+  grid-column: 1;
+  grid-row: 6;
+  align-self: start;
+  font-size: 15px;
+  text-align: left;
+  margin: 0;
+}
+
+.sec-07__bridge {
+  grid-row: 7;
+  margin-top: 48px;
 }
 
 
@@ -584,6 +618,10 @@ body.bg-group-3 {
   justify-self: center;
 }
 
+.sec-11 .eyebrow { grid-row: 1; }
+.sec-11__title { grid-row: 2; }
+.sec-11__lead { grid-row: 3; }
+
 .big-number { font-size: 140px; }
 
 .sec-11__photo {
@@ -602,6 +640,11 @@ body.bg-group-3 {
   align-self: center;
   text-align: left;
   font-size: 15px;
+}
+
+.sec-11__note {
+  grid-row: 5;
+  margin-top: 40px;
 }
 
 
@@ -698,7 +741,9 @@ body.bg-group-3 {
   text-align: center;
 }
 
-.sec-14__title { font-size: 46px; }
+.sec-14 .eyebrow { grid-row: 1; }
+.sec-14__lead { grid-row: 2; }
+.sec-14__title { grid-row: 3; font-size: 46px; }
 
 .sec-14__photo {
   grid-column: 2;
@@ -714,6 +759,11 @@ body.bg-group-3 {
 }
 
 .sec-14__price-new { font-size: 110px; }
+
+.sec-14__body {
+  grid-row: 5;
+  margin-top: 40px;
+}
 
 
 /* ============================================
