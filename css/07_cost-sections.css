@@ -356,15 +356,16 @@
 
 .sec-01b__savings-num {
   font-family: var(--f-serif);
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 800;
   color: #fff;
-  line-height: 1.1;
+  line-height: 1.2;
   text-shadow: 0 2px 8px rgba(120,80,20,0.3);
+  white-space: nowrap;
 }
 
 .sec-01b__savings-num small {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
 }
 
