@@ -1,0 +1,98 @@
+/* =========================================================
+   08_mobile-performance.css
+   役割：スマホでのスクロールを滑らかにする最適化
+   ・スマホ（767px以下）では重い無限アニメーションを停止
+   ・装飾の浮遊アニメだけ止める（ボタンの脈打ちは控えめに残す）
+   ・PC（768px以上）は一切影響なし＝今まで通り華やか
+   ・このファイルを削除すれば元の挙動に戻ります
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* ---- 1. 装飾の浮遊アニメを完全停止（最も重い） ----
+     水滴・葉っぱ・泡などの floatGentle / float は
+     スクロール中ずっと再計算されるため、スマホでは止める。
+     要素は表示されたまま（消えない）、動きだけ止まる。 */
+  .float,
+  [class*="floatGentle"],
+  .deco-leaf,
+  .deco-drop,
+  .deco-bubble,
+  .bg-deco,
+  .sec-deco {
+    animation: none !important;
+  }
+
+  /* common.css 内の floatGentle を使う装飾を個別にも停止 */
+  .site-footer__deco,
+  .sec-02__deco,
+  .sec-04__deco,
+  .sec-07__deco,
+  .sec-08__deco,
+  .sec-09__deco,
+  .sec-11__deco,
+  .sec-14__deco,
+  .sec-16__deco {
+    animation: none !important;
+  }
+
+  /* ---- 2. パルス系アニメを軽量化 ----
+     完全には止めず、負荷の低い opacity のみの
+     ゆっくりした点滅に置き換える（CTAは目立たせたいので） */
+  .floating-bar,
+  .cta-button,
+  .sec-01b__cta,
+  .sec-13b__cta,
+  .sec-01b__teaser-badge,
+  .sec-01b__row-badge--low,
+  .sec-15__referral-frame {
+    animation: none !important;
+  }
+
+  /* CTAボタンだけは「押せる感」を残すため、軽い点滅を付与 */
+  .sec-01b__cta,
+  .sec-13b__cta,
+  .cta-button {
+    animation: mobileSoftPulse 2.6s ease-in-out infinite !important;
+  }
+
+  @keyframes mobileSoftPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.88; }
+  }
+
+  /* ---- 3. スクロール連動の重い効果を無効化 ---- */
+  /* fade-in の transition は残すが、transform は軽くする */
+  .reveal {
+    transition: opacity 0.6s ease !important;
+    transform: none !important;
+  }
+
+  .reveal.is-visible,
+  .reveal.visible {
+    transform: none !important;
+  }
+
+  /* ---- 4. 影・ぼかしの負荷を軽減 ----
+     box-shadow の多重指定はスクロール描画を重くするため
+     スマホでは控えめに */
+  .sec-01b__row,
+  .sec-01b__savings,
+  .sec-13b__cta,
+  .sec-15__referral-frame {
+    box-shadow: 0 4px 12px rgba(30,58,107,0.12) !important;
+  }
+}
+
+
+/* ---- OS側で「視差効果を減らす」設定の人へ完全対応 ---- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
