@@ -116,6 +116,50 @@
   margin: 0 2px;
 }
 
+/* コンビニ画像 */
+.sec-01b__imagine-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 340px;
+  margin: 4px auto 18px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 18px rgba(120,90,40,0.18);
+}
+
+/* 「1日に必要な水は2L」ファクトボックス */
+.sec-01b__imagine-fact {
+  background: rgba(168,123,46,0.10);
+  border: 1px solid rgba(168,123,46,0.3);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin: 0 auto 18px;
+  max-width: 300px;
+}
+
+.sec-01b__imagine-fact-label {
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: var(--c-navy);
+  opacity: 0.7;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.sec-01b__imagine-fact-text {
+  font-family: var(--f-serif);
+  font-size: 15px;
+  color: var(--c-navy);
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.sec-01b__imagine-fact-text b {
+  color: #A87B2E;
+  font-weight: 800;
+  font-size: 17px;
+}
+
 .sec-01b__imagine-lead {
   font-family: var(--f-sans);
   font-size: 13px;
@@ -979,6 +1023,16 @@
   .sec-01b__imagine-price { font-size: 26px; }
   .sec-01b__imagine-num { font-size: 56px; }
   .sec-01b__imagine-lead { font-size: 14px; }
+  .sec-01b__imagine-photo {
+    max-width: 440px;
+    margin: 8px auto 22px;
+  }
+  .sec-01b__imagine-fact {
+    max-width: 380px;
+    padding: 16px 24px;
+  }
+  .sec-01b__imagine-fact-text { font-size: 16px; }
+  .sec-01b__imagine-fact-text b { font-size: 19px; }
 
   .sec-01b__teaser {
     max-width: 480px;
