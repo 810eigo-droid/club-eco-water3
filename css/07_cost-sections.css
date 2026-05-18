@@ -308,28 +308,49 @@
   letter-spacing: 0.05em;
 }
 
-/* 「詳しくは下で」誘導 */
-.sec-01b__more {
+/* 「くわしい計算を見る」ページ内リンクボタン */
+.sec-01b__cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--f-sans);
-  font-size: 13px;
-  color: var(--c-navy);
-  opacity: 0.75;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  animation: costBounce 2s ease-in-out infinite;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 4px;
+  padding: 18px 44px;
+  background: linear-gradient(135deg, #C8973A 0%, #B5832E 100%);
+  color: #fff;
+  font-family: var(--f-serif);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 2px solid #FFF3DC;
+  box-shadow: 0 10px 26px rgba(200,165,107,0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: ctaPulse 2.4s ease-in-out infinite;
 }
 
-.sec-01b__more-arrow {
+.sec-01b__cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(200,165,107,0.6);
+}
+
+.sec-01b__cta:active {
+  transform: translateY(-1px);
+}
+
+.sec-01b__cta-arrow {
   font-size: 16px;
-  color: #A87B2E;
+  transition: transform 0.25s ease;
 }
 
-@keyframes costBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+.sec-01b__cta:hover .sec-01b__cta-arrow {
+  transform: translateY(3px);
+}
+
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 10px 26px rgba(200,165,107,0.45); }
+  50% { box-shadow: 0 10px 32px rgba(200,165,107,0.7); }
 }
 
 
