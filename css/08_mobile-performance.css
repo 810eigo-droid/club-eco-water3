@@ -44,9 +44,14 @@
   .sec-01b__cta,
   .sec-13b__cta,
   .sec-01b__teaser-badge,
-  .sec-01b__row-badge--low,
   .sec-15__referral-frame {
     animation: none !important;
+  }
+
+  /* ★「こんなに安い！」バッジだけは目玉なので
+     スマホでも脈打つアニメを残す（badgePop を維持） */
+  .sec-01b__row-badge--low {
+    animation: badgePop 1.6s ease-in-out infinite !important;
   }
 
   /* CTAボタンだけは「押せる感」を残すため、軽い点滅を付与 */
