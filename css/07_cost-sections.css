@@ -119,15 +119,15 @@
 /* インパクトバッジ（差し色） */
 .sec-01b__row-badge {
   position: absolute;
-  top: -14px;
-  right: 16px;
+  top: 14px;
+  right: 14px;
   z-index: 3;
   font-family: var(--f-sans);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
-  padding: 7px 18px;
+  padding: 6px 14px;
   border-radius: 999px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   white-space: nowrap;
   transform: rotate(3deg);
 }
@@ -135,20 +135,25 @@
 .sec-01b__row-badge--high {
   background: linear-gradient(135deg, #E14B3C 0%, #C5392B 100%);
   color: #fff;
-  box-shadow: 0 6px 16px rgba(225,75,60,0.45);
+  box-shadow: 0 4px 12px rgba(225,75,60,0.45);
 }
 
 .sec-01b__row-badge--low {
   background: linear-gradient(135deg, #D9A441 0%, #C8973A 100%);
   color: #fff;
-  box-shadow: 0 6px 18px rgba(200,165,107,0.55);
-  font-size: 14px;
+  box-shadow: 0 4px 14px rgba(200,165,107,0.55);
+  font-size: 13px;
   animation: badgePop 1.6s ease-in-out infinite;
 }
 
 @keyframes badgePop {
   0%, 100% { transform: rotate(3deg) scale(1); }
-  50% { transform: rotate(3deg) scale(1.07); }
+  50% { transform: rotate(3deg) scale(1.06); }
+}
+
+/* バッジ分の余白をカード上部に確保（ラベルと重ならないように） */
+.sec-01b__row {
+  padding-top: 52px;
 }
 
 .sec-01b__row--konbini {
@@ -308,6 +313,53 @@
   letter-spacing: 0.05em;
 }
 
+/* 無料サーバー特典のチラ見せ予告 */
+.sec-01b__teaser {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255,255,255,0.6);
+  border: 1px dashed rgba(168,123,46,0.5);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin: 0 auto 24px;
+  max-width: 360px;
+  text-align: left;
+}
+
+.sec-01b__teaser-badge {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #E14B3C 0%, #C5392B 100%);
+  color: #fff;
+  font-family: var(--f-sans);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 8px 14px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(225,75,60,0.4);
+  animation: teaserPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes teaserPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.sec-01b__teaser-text {
+  font-family: var(--f-sans);
+  font-size: 13px;
+  color: var(--c-navy);
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+
+.sec-01b__teaser-text b {
+  color: #A87B2E;
+  font-weight: 800;
+  font-size: 14px;
+}
+
 /* 「くわしい計算を見る」ページ内リンクボタン */
 .sec-01b__cta {
   display: inline-flex;
@@ -373,11 +425,14 @@
   padding: 0;
 }
 
+/* スマホ：画像を画面幅いっぱいに（LP幅の制限を突破） */
 .sec-13b__image {
   display: block;
-  width: 100%;
+  width: 100vw;
+  max-width: 100vw;
   height: auto;
-  margin: 0 auto;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 /* お申し込みボタン */
@@ -473,7 +528,10 @@
     padding: 0 0 72px;
   }
   .sec-13b__image {
+    width: 100%;
     max-width: 720px;
+    margin-left: auto;
+    transform: none;
   }
   .sec-13b__cta {
     font-size: 21px;
@@ -847,6 +905,13 @@
 
   .sec-01b__title { font-size: 36px; }
   .sec-01b__subtitle { font-size: 15px; margin-bottom: 48px; }
+
+  .sec-01b__teaser {
+    max-width: 480px;
+    padding: 18px 26px;
+  }
+  .sec-01b__teaser-text { font-size: 14px; }
+  .sec-01b__teaser-text b { font-size: 15px; }
 
   .sec-01b__compare {
     flex-direction: row;
