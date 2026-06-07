@@ -571,3 +571,119 @@ body {
   position: relative;
   z-index: 1;
 }
+
+
+/* ============================================
+   Instagram DM 誘導ボタン（帯タイプ）
+============================================ */
+.ig-dm-banner {
+  background: linear-gradient(135deg, #FFFDF7 0%, #FBF1DC 100%);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.ig-dm-banner--dark {
+  background: linear-gradient(135deg, #1E3A6B 0%, #16305C 100%);
+}
+
+.ig-dm-banner__text {
+  font-family: var(--f-serif);
+  font-size: 15px;
+  color: var(--c-navy);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.ig-dm-banner--dark .ig-dm-banner__text {
+  color: var(--c-cream);
+}
+
+.ig-dm-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #E1306C 0%, #C13584 50%, #833AB4 100%);
+  color: #fff;
+  font-family: var(--f-sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(225,48,108,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ig-dm-banner__btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(225,48,108,0.5);
+}
+
+.ig-dm-banner__icon {
+  flex-shrink: 0;
+}
+
+/* Instagram DM（インライン：CTA下） */
+.ig-dm-inline {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.ig-dm-inline__or {
+  font-family: var(--f-sans);
+  font-size: 12px;
+  color: rgba(245,232,220,0.7);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.ig-dm-inline__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: transparent;
+  color: var(--c-cream);
+  font-family: var(--f-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 1.5px solid rgba(225,48,108,0.6);
+  border-radius: 999px;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.ig-dm-inline__btn:hover {
+  background: rgba(225,48,108,0.15);
+  border-color: #E1306C;
+  transform: translateY(-2px);
+}
+
+.ig-dm-inline__icon {
+  flex-shrink: 0;
+}
+
+/* 明るい背景用（水色セクション内） */
+.ig-dm-inline--light {
+  margin-top: 28px;
+  margin-bottom: 8px;
+}
+
+.ig-dm-inline__or--light {
+  color: var(--c-navy);
+  opacity: 0.6;
+}
+
+.ig-dm-inline__btn--light {
+  color: var(--c-navy);
+  border: 1.5px solid rgba(225,48,108,0.5);
+  background: rgba(255,255,255,0.6);
+}
+
+.ig-dm-inline__btn--light:hover {
+  background: rgba(225,48,108,0.1);
+  border-color: #E1306C;
+  color: #C13584;
+}

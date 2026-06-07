@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>毎月の水代、高すぎませんか？｜CLUB ECO WATER</title>
+<meta name="description" content="月額3,800円で約150Lのお水が作れる。健康も家計も守りたいご家庭へ。水道水からミネラルウォーターを作るという選択、CLUB ECO WATER。説明会は無料で参加できます。">
+
+<!-- OGP -->
+<meta property="og:title" content="毎月の水代、高すぎませんか？｜CLUB ECO WATER">
+<meta property="og:description" content="水道水からミネラルウォーターを作るという選択。月々の水代を見直したい方へ。">
+<meta property="og:type" content="website">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   CLUB ECO WATER  LP
+   コンセプト：親しみやすさ・安心感・信頼感
+   トーン：青・白・ナチュラルカラー基調
+   設計：モバイルファースト（基準幅 480px・PCは中央寄せ）
+   ========================================================= */
+
+/* ---------- CSS変数 ---------- */
+:root{
+  /* 水・青系 */
+  --c-blue:        #2E86C1;   /* メインブルー */
+  --c-blue-deep:   #1B5E86;   /* 濃いブルー（見出し・文字） */
+  --c-blue-soft:   #5DADE2;
+  --c-sky:         #EAF5FB;   /* 淡いスカイ背景 */
+  --c-sky-2:       #DCEEF8;
+  /* ナチュラル・緑系 */
+  --c-green:       #5BB98C;   /* 新緑グリーン（アクセント） */
+  --c-green-soft:  #A7D7BE;
+  --c-green-pale:  #EAF6EF;
+  /* 自然な温かみ */
+  --c-sand:        #F6F1E7;   /* やわらかいベージュ */
+  --c-cream:       #FBF8F2;
+  /* 文字 */
+  --c-ink:         #234156;   /* 基本文字（やわらかいネイビー） */
+  --c-ink-soft:    #5C7488;
+  --c-white:       #FFFFFF;
+  /* LINE */
+  --c-line:        #06C755;
+  --c-line-deep:   #05A648;
+
+  --maxw:          480px;
+  --pad-x:         22px;
+  --radius:        18px;
+  --radius-lg:     28px;
+  --shadow:        0 10px 30px rgba(33,90,130,.12);
+  --shadow-soft:   0 6px 18px rgba(33,90,130,.08);
+
+  --f-round: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+  --f-sans:  "Noto Sans JP", sans-serif;
+}
+
+/* ---------- リセット ---------- */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  font-family:var(--f-sans);
+  color:var(--c-ink);
+  background:var(--c-white);
+  line-height:1.85;
+  font-size:15px;
+  letter-spacing:.02em;
+  overflow-x:hidden;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+
+.sp-only{ display:inline; }
+
+/* ---------- 共通レイアウト ---------- */
+.lp{ overflow:hidden; }
+.container{
+  width:100%;
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding-left:var(--pad-x);
+  padding-right:var(--pad-x);
+}
+
+/* セクション見出し */
+.section-eyebrow{
+  font-family:var(--f-sans);
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.28em;
+  color:var(--c-green);
+  text-align:center;
+  margin-bottom:10px;
+}
+.section-title{
+  font-family:var(--f-round);
+  font-weight:900;
+  font-size:25px;
+  line-height:1.5;
+  text-align:center;
+  color:var(--c-blue-deep);
+  margin-bottom:14px;
+}
+.section-title--light{ color:var(--c-white); }
+.section-lead{
+  text-align:center;
+  color:var(--c-ink-soft);
+  font-size:14.5px;
+  margin-bottom:28px;
+}
+
+/* ---------- 写真プレースホルダ ---------- */
+.ph{
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  background:
+    linear-gradient(135deg, var(--c-sky) 0%, var(--c-green-pale) 100%);
+  border:2px dashed var(--c-blue-soft);
+  border-radius:var(--radius);
+  color:var(--c-blue);
+  overflow:hidden;
+}
+.ph::after{
+  content:"📷 " attr(data-ph);
+  position:absolute;
+  bottom:8px; left:8px; right:8px;
+  font-size:9.5px; line-height:1.4;
+  color:var(--c-ink-soft);
+  background:rgba(255,255,255,.78);
+  border-radius:8px;
+  padding:5px 8px;
+  letter-spacing:0;
+}
+.ph__label{
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:15px;
+  opacity:.7;
+}
+
+/* ---------- ボタン ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:6px;
+  width:100%;
+  padding:15px 18px;
+  border-radius:999px;
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:16px;
+  text-align:center;
+  transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  box-shadow:var(--shadow-soft);
+}
+.btn:active{ transform:scale(.98); }
+.btn--lg{ padding:18px; font-size:17px; }
+
+.btn--primary{
+  background:linear-gradient(135deg, var(--c-blue) 0%, var(--c-blue-deep) 100%);
+  color:var(--c-white);
+}
+.btn--line{
+  background:var(--c-line);
+  color:var(--c-white);
+}
+.btn--line::before{ content:""; }
+.btn--accent{
+  background:linear-gradient(135deg, var(--c-green) 0%, #3FA679 100%);
+  color:var(--c-white);
+}
+.btn--ghost{
+  background:var(--c-white);
+  color:var(--c-blue-deep);
+  border:2px solid var(--c-blue-soft);
+  box-shadow:none;
+}
+
+/* =========================================================
+   ヘッダー
+   ========================================================= */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(46,134,193,.12);
+}
+.site-header__inner{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:10px var(--pad-x);
+  display:flex; align-items:center; justify-content:space-between;
+}
+.site-header__logo{ display:flex; align-items:center; gap:8px; }
+.logo-drop{
+  width:18px; height:22px;
+  background:linear-gradient(160deg, var(--c-blue-soft), var(--c-blue));
+  border-radius:50% 50% 50% 50% / 65% 65% 35% 35%;
+  transform:rotate(-2deg);
+}
+.logo-text{
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:14px;
+  color:var(--c-blue-deep);
+  letter-spacing:.04em;
+}
+.site-header__cta{
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:12.5px;
+  color:var(--c-white);
+  background:var(--c-green);
+  padding:8px 14px;
+  border-radius:999px;
+}
+
+/* =========================================================
+   ① ファーストビュー
+   ========================================================= */
+.fv{
+  position:relative;
+  background:linear-gradient(180deg, var(--c-sky) 0%, #F4FAFD 60%, var(--c-white) 100%);
+  padding:34px 0 70px;
+  overflow:hidden;
+}
+.fv__bg{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+.blob{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(8px);
+  opacity:.5;
+}
+.blob--a{ width:200px; height:200px; top:-40px; right:-50px;
+  background:radial-gradient(circle at 30% 30%, var(--c-blue-soft), transparent 70%); }
+.blob--b{ width:160px; height:160px; top:180px; left:-60px;
+  background:radial-gradient(circle at 30% 30%, var(--c-green-soft), transparent 70%); }
+.blob--c{ width:120px; height:120px; bottom:60px; right:-30px;
+  background:radial-gradient(circle at 30% 30%, var(--c-sky-2), transparent 70%); }
+
+.fv__inner{
+  position:relative; z-index:1;
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:0 var(--pad-x);
+  text-align:center;
+}
+.fv__eyebrow{
+  display:inline-block;
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:12.5px;
+  color:var(--c-green);
+  background:var(--c-white);
+  padding:6px 16px;
+  border-radius:999px;
+  box-shadow:var(--shadow-soft);
+  margin-bottom:18px;
+}
+.fv__title{
+  font-family:var(--f-round);
+  font-weight:900;
+  font-size:34px;
+  line-height:1.4;
+  color:var(--c-blue-deep);
+  letter-spacing:.01em;
+}
+.fv__title-em{
+  position:relative;
+  color:var(--c-blue);
+  background:linear-gradient(transparent 62%, rgba(91,185,140,.35) 62%);
+}
+.fv__lead{
+  margin-top:18px;
+  font-size:15px;
+  color:var(--c-ink);
+  font-weight:500;
+}
+.fv__photo{ margin:26px 0 24px; }
+.ph--fv{ aspect-ratio:4/3; box-shadow:var(--shadow); }
+.fv__cta{ display:flex; flex-direction:column; gap:11px; }
+
+/* FV 価格ハイライト（健康×節約の主役） */
+.fv__pricetag{
+  margin:22px auto 4px;
+  max-width:350px;
+  background:var(--c-white);
+  border:2px solid var(--c-green-soft);
+  border-radius:var(--radius);
+  padding:16px 18px;
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+.fv__pricetag-lead{
+  display:block;
+  font-size:12.5px; font-weight:700; color:var(--c-green);
+}
+.fv__pricetag-main{
+  display:block;
+  font-family:var(--f-round); font-weight:900;
+  font-size:22px; line-height:1.3; color:var(--c-blue-deep);
+  margin:5px 0 4px;
+}
+.fv__pricetag-main strong{ color:#E2603A; font-size:32px; }
+.fv__pricetag-main small{ font-size:15px; }
+.fv__pricetag-sub{
+  display:block;
+  font-size:11.5px; color:var(--c-ink-soft);
+}
+
+/* 波 */
+.wave{ position:absolute; left:0; width:100%; line-height:0; z-index:1; }
+.wave svg{ width:100%; height:60px; display:block; }
+.wave--bottom{ bottom:-1px; }
+.wave--bottom svg path{ fill:var(--c-white); }
+.wave--top-light{ top:-1px; transform:rotate(180deg); }
+.wave--top-light svg path{ fill:var(--c-white); }
+.wave--bottom-light{ bottom:-1px; }
+.wave--bottom-light svg path{ fill:var(--c-white); }
+
+/* =========================================================
+   ② 共感パート
+   ========================================================= */
+.empathy{ background:var(--c-white); padding:58px 0; }
+.check-list{
+  max-width:360px;
+  margin:26px auto 0;
+  display:flex; flex-direction:column; gap:12px;
+}
+.check-list__item{
+  display:flex; align-items:center; gap:12px;
+  background:var(--c-sky);
+  border-radius:14px;
+  padding:14px 18px;
+  font-weight:500;
+  font-size:15px;
+  color:var(--c-ink);
+  box-shadow:var(--shadow-soft);
+}
+.check-list__box{
+  flex-shrink:0;
+  color:var(--c-green);
+  font-size:20px;
+  font-weight:700;
+}
+.empathy__note{
+  text-align:center;
+  margin-top:26px;
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:16px;
+  color:var(--c-blue-deep);
+}
+
+/* =========================================================
+   ③ 現状認識
+   ========================================================= */
+.reality{
+  position:relative;
+  background:linear-gradient(160deg, var(--c-blue) 0%, var(--c-blue-deep) 100%);
+  padding:64px 0 58px;
+  color:var(--c-white);
+}
+.reality .section-eyebrow{ color:var(--c-green-soft); }
+.reality__cards{
+  display:flex; align-items:stretch; justify-content:center;
+  flex-wrap:wrap; gap:8px;
+  margin:28px 0 26px;
+}
+.fact-card{
+  flex:1 1 0;
+  min-width:90px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:16px;
+  padding:16px 8px;
+  text-align:center;
+  backdrop-filter:blur(2px);
+}
+.fact-card__num{
+  display:block;
+  font-family:var(--f-round);
+  font-weight:900;
+  font-size:24px;
+  line-height:1.2;
+  color:var(--c-white);
+}
+.fact-card__num small{ font-size:13px; font-weight:700; margin-left:1px; }
+.fact-card__label{
+  margin-top:8px;
+  font-size:11.5px;
+  line-height:1.5;
+  color:rgba(255,255,255,.85);
+}
+.fact-card__op{
+  align-self:center;
+  font-family:var(--f-round);
+  font-weight:900;
+  font-size:20px;
+  color:var(--c-green-soft);
+}
+.reality__result{
+  background:var(--c-white);
+  color:var(--c-ink);
+  border-radius:var(--radius-lg);
+  padding:26px 22px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.reality__result-lead{
+  font-size:13.5px;
+  color:var(--c-ink-soft);
+  font-weight:500;
+}
+.reality__result-num{
+  font-family:var(--f-round);
+  font-weight:900;
+  font-size:22px;
+  color:var(--c-blue-deep);
+  margin:6px 0 10px;
+}
+.reality__result-num strong{ font-size:40px; color:#E2603A; }
+.reality__result-num strong span{ font-size:20px; }
+.reality__result-sub{
+  font-size:13px;
+  color:var(--c-ink-soft);
+  line-height:1.7;
+}
+.reality__result-sub small{ font-size:11px; opacity:.85; }
+
+/* =========================================================
+   ④ 解決策
+   ========================================================= */
+.solution{ background:var(--c-cream); padding:60px 0; }
+.solution__photo{ margin:0 auto 30px; max-width:300px; }
+.ph--server{ aspect-ratio:9/11; box-shadow:var(--shadow); background:linear-gradient(135deg,#fff,var(--c-sky)); }
+.feature-list{
+  display:flex; flex-direction:column; gap:14px;
+}
+.feature-card{
+  display:flex; align-items:flex-start; gap:14px;
+  background:var(--c-white);
+  border-radius:var(--radius);
+  padding:18px 18px;
+  box-shadow:var(--shadow-soft);
+  border-left:5px solid var(--c-green-soft);
+}
+.feature-card__icon{
+  flex-shrink:0;
+  width:46px; height:46px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--c-green-pale);
+  border-radius:50%;
+  font-size:22px;
+}
+.feature-card__title{
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:16.5px;
+  color:var(--c-blue-deep);
+  margin-bottom:3px;
+}
+.feature-card__text{
+  font-size:13.5px;
+  color:var(--c-ink-soft);
+  line-height:1.7;
+}
+
+/* =========================================================
+   ⑤ コスト比較
+   ========================================================= */
+.compare{
+  position:relative;
+  background:linear-gradient(160deg, var(--c-green) 0%, #3FA679 100%);
+  padding:64px 0 58px;
+  color:var(--c-white);
+}
+.compare .section-eyebrow{ color:#FFF; opacity:.85; }
+
+/* コスト主役カード：月額3,800円で約150L */
+.cost-hero{
+  background:var(--c-white);
+  border:3px solid #FFE08A;
+  border-radius:var(--radius-lg);
+  padding:28px 22px;
+  margin:26px 0 22px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.cost-hero__lead{ font-size:13.5px; font-weight:700; color:var(--c-green); }
+.cost-hero__main{
+  font-family:var(--f-round); font-weight:900;
+  font-size:28px; line-height:1.15; color:var(--c-blue-deep);
+  margin-top:6px;
+}
+.cost-hero__main strong{ color:#E2603A; font-size:54px; }
+.cost-hero__main span{ font-size:22px; }
+.cost-hero__amount{
+  font-family:var(--f-round); font-weight:700;
+  font-size:18px; color:var(--c-blue-deep); margin-top:2px;
+}
+.cost-hero__amount strong{ color:var(--c-blue); font-size:25px; }
+.cost-hero__sub{ font-size:12px; color:var(--c-ink-soft); margin-top:10px; }
+.compare__bridge{
+  text-align:center;
+  font-weight:700; font-size:14px; color:#fff;
+  margin-bottom:14px; opacity:.95;
+}
+
+.compare__table{
+  display:flex; flex-direction:column; gap:14px;
+  margin-top:0;
+}
+.compare-row{
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:16px;
+  padding:16px 18px;
+}
+.compare-row--eco{
+  background:var(--c-white);
+  border:2px solid #FFE08A;
+  box-shadow:0 8px 22px rgba(0,0,0,.14);
+}
+.compare-row__head{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:8px;
+  margin-bottom:10px;
+}
+.compare-row__name{
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:15px;
+  line-height:1.3;
+  color:var(--c-white);
+}
+.compare-row--eco .compare-row__name{ color:var(--c-blue-deep); }
+.compare-row__tag{
+  flex-shrink:0;
+  font-size:10.5px;
+  font-weight:700;
+  background:rgba(255,255,255,.22);
+  color:var(--c-white);
+  padding:3px 9px;
+  border-radius:999px;
+}
+.compare-row__tag--eco{
+  background:#FFE08A;
+  color:#8a6d1e;
+}
+.compare-row__val{ display:flex; flex-direction:column; gap:8px; }
+.compare-row__price{
+  font-family:var(--f-round);
+  font-weight:900;
+  font-size:19px;
+  color:var(--c-white);
+}
+.compare-row__price small{ font-size:13px; }
+.compare-row__price--eco{ color:#E2603A; font-size:23px; }
+.compare-bar{
+  display:block;
+  height:9px;
+  width:var(--w);
+  background:rgba(255,255,255,.55);
+  border-radius:999px;
+}
+.compare-bar--eco{
+  background:linear-gradient(90deg,#FFD166,#E2603A);
+}
+.compare__note{
+  text-align:center;
+  margin-top:22px;
+  font-size:12px;
+  color:rgba(255,255,255,.9);
+}
+
+/* =========================================================
+   ⑥ 利用者の声
+   ========================================================= */
+.voices{ background:var(--c-white); padding:60px 0; }
+.voice-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:28px;
+}
+.voice-card{
+  background:var(--c-sky);
+  border-radius:var(--radius);
+  padding:14px 14px 18px;
+  text-align:center;
+  box-shadow:var(--shadow-soft);
+}
+.ph--voice{
+  aspect-ratio:1/1;
+  border-radius:50%;
+  width:84px; height:84px;
+  margin:0 auto 12px;
+  border-width:2px;
+}
+.ph--voice::after{ display:none; }
+.voice-card__text{
+  font-size:13.5px;
+  font-weight:500;
+  color:var(--c-ink);
+  line-height:1.65;
+  min-height:3.3em;
+}
+.voice-card__name{
+  margin-top:10px;
+  font-size:11.5px;
+  color:var(--c-blue);
+  font-weight:700;
+}
+.voices__note{
+  text-align:center;
+  margin-top:22px;
+  font-size:11.5px;
+  color:var(--c-ink-soft);
+}
+
+/* =========================================================
+   ⑦ ストーリー
+   ========================================================= */
+.story{
+  background:linear-gradient(160deg, var(--c-blue-deep) 0%, #16486B 100%);
+  padding:62px 0;
+  color:var(--c-white);
+}
+.story .section-eyebrow{ color:var(--c-green-soft); }
+.story__body{ margin-top:28px; }
+.story__photo{ max-width:230px; margin:0 auto 24px; }
+.ph--portrait{
+  aspect-ratio:4/5;
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow);
+  border-color:rgba(255,255,255,.4);
+  background:linear-gradient(135deg, rgba(255,255,255,.2), rgba(91,185,140,.2));
+}
+.ph--portrait .ph__label{ color:#fff; }
+.story__text{ font-size:14.5px; line-height:1.95; }
+.story__text p{ margin-bottom:14px; color:rgba(255,255,255,.92); }
+.story__text strong{ color:#FFE08A; font-weight:700; }
+.story__name{
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:19px !important;
+  color:var(--c-white) !important;
+  margin-bottom:18px !important;
+  padding-bottom:10px;
+  border-bottom:2px solid rgba(255,255,255,.25);
+}
+
+/* =========================================================
+   ⑧ 安心材料
+   ========================================================= */
+.trust{ background:var(--c-sand); padding:58px 0; }
+.trust-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:28px;
+}
+.trust-card{
+  background:var(--c-white);
+  border-radius:var(--radius);
+  padding:24px 12px;
+  text-align:center;
+  box-shadow:var(--shadow-soft);
+}
+.trust-card__icon{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:54px; height:54px;
+  background:var(--c-sky);
+  border-radius:50%;
+  font-size:26px;
+  margin-bottom:12px;
+}
+.trust-card__title{
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:15px;
+  line-height:1.5;
+  color:var(--c-blue-deep);
+}
+
+/* =========================================================
+   ⑨ クロージング
+   ========================================================= */
+.closing{
+  position:relative;
+  background:linear-gradient(180deg, #F4FAFD 0%, var(--c-sky) 100%);
+  padding:64px 0 56px;
+  overflow:hidden;
+}
+.closing__bg{ position:absolute; inset:0; z-index:0; }
+.closing .container{ position:relative; z-index:1; }
+.closing__lead{
+  text-align:center;
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:16px;
+  color:var(--c-green);
+  margin-bottom:14px;
+}
+.closing__title{
+  text-align:center;
+  font-family:var(--f-round);
+  font-weight:900;
+  font-size:25px;
+  line-height:1.6;
+  color:var(--c-blue-deep);
+  margin-bottom:30px;
+}
+.closing__title-em{
+  color:var(--c-blue);
+  background:linear-gradient(transparent 62%, rgba(91,185,140,.35) 62%);
+}
+.closing__cta{ display:flex; flex-direction:column; gap:12px; }
+.closing__referrer{
+  margin-top:34px;
+  background:var(--c-white);
+  border-radius:var(--radius);
+  padding:22px;
+  text-align:center;
+  box-shadow:var(--shadow-soft);
+  border:1px solid rgba(46,134,193,.15);
+}
+.closing__referrer-label{
+  font-size:11.5px;
+  color:var(--c-green);
+  font-weight:700;
+  letter-spacing:.2em;
+}
+.closing__referrer-name{
+  font-family:var(--f-round);
+  font-weight:900;
+  font-size:22px;
+  color:var(--c-blue-deep);
+  margin:4px 0 2px;
+}
+.closing__referrer-id{
+  font-size:12px;
+  color:var(--c-ink-soft);
+}
+
+/* =========================================================
+   フッター
+   ========================================================= */
+.site-footer{
+  background:var(--c-blue-deep);
+  color:rgba(255,255,255,.8);
+  padding:30px 0 90px;
+  text-align:center;
+}
+.site-footer__logo{
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:15px;
+  color:var(--c-white);
+  margin-bottom:6px;
+}
+.site-footer__copy{ font-size:11px; }
+
+/* =========================================================
+   固定CTAバー（スマホ）
+   ========================================================= */
+.floating-bar{
+  position:fixed;
+  bottom:0; left:0; right:0;
+  z-index:60;
+  display:flex; gap:8px;
+  padding:9px 12px;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);
+  box-shadow:0 -4px 16px rgba(33,90,130,.12);
+}
+.floating-bar__btn{
+  flex:1;
+  text-align:center;
+  padding:13px 8px;
+  border-radius:999px;
+  font-family:var(--f-round);
+  font-weight:700;
+  font-size:14.5px;
+  color:var(--c-white);
+}
+.floating-bar__btn--line{ background:var(--c-line); }
+.floating-bar__btn--primary{
+  background:linear-gradient(135deg, var(--c-blue), var(--c-blue-deep));
+}
+.floating-bar__btn--accent{
+  background:linear-gradient(135deg, var(--c-green), #3FA679);
+}
+
+/* =========================================================
+   スクロール演出（reveal）
+   ========================================================= */
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.is-visible{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; transition:none; }
+  html{ scroll-behavior:auto; }
+}
+
+/* =========================================================
+   PC（広い画面）対応
+   LP本体は中央寄せ。背景だけ全幅に広げる。
+   ========================================================= */
+@media (min-width: 768px){
+  body{ font-size:16px; }
+  .sp-only{ display:none; }
+
+  /* セクションの色背景は全幅、中身は中央寄せ */
+  .container{ max-width:680px; }
+  .site-header__inner,
+  .fv__inner{ max-width:680px; }
+
+  .fv{ padding:48px 0 90px; }
+  .fv__title{ font-size:46px; }
+  .fv__lead{ font-size:17px; }
+  .fv__photo{ max-width:560px; margin-left:auto; margin-right:auto; }
+  .fv__cta{
+    flex-direction:row;
+    max-width:620px;
+    margin:0 auto;
+  }
+
+  .section-title{ font-size:30px; }
+  .closing__title{ font-size:30px; }
+
+  /* 解決策：写真と特徴を横並び */
+  .solution .container{ max-width:760px; }
+  .feature-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+
+  /* 利用者の声：4列 */
+  .voice-grid{ grid-template-columns:repeat(4,1fr); }
+
+  /* 安心材料：4列 */
+  .trust-grid{ grid-template-columns:repeat(4,1fr); }
+
+  /* ストーリー：写真左・本文右 */
+  .story__body{
+    display:grid;
+    grid-template-columns:230px 1fr;
+    gap:36px;
+    align-items:center;
+    max-width:760px;
+    margin-left:auto; margin-right:auto;
+  }
+  .story__photo{ margin:0; }
+
+  /* 現状認識カード */
+  .reality__cards{ max-width:560px; margin-left:auto; margin-right:auto; }
+
+  /* クロージングCTA横並び */
+  .closing__cta{
+    flex-direction:row;
+    max-width:760px;
+    margin:0 auto;
+  }
+
+  /* 固定バーはPCでは控えめに（中央寄せ） */
+  .floating-bar{ justify-content:center; }
+  .floating-bar__btn{ max-width:240px; }
+
+  .wave svg{ height:80px; }
+}
+
+/* 大画面：画像枠が大きくなりすぎないよう調整 */
+@media (min-width: 1100px){
+  .container{ max-width:720px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ===== ヘッダー ===== -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <div class="site-header__logo">
+      <span class="logo-drop" aria-hidden="true"></span>
+      <span class="logo-text">CLUB ECO WATER</span>
+    </div>
+    <a href="https://forms.gle/dHGQMcwnVssw4LRP9" class="site-header__cta" target="_blank" rel="noopener">説明会に参加</a>
+  </div>
+</header>
+
+<main class="lp">
+
+  <!-- ===== ① ファーストビュー ===== -->
+  <section class="fv" id="top">
+    <div class="fv__bg" aria-hidden="true">
+      <span class="blob blob--a"></span>
+      <span class="blob blob--b"></span>
+      <span class="blob blob--c"></span>
+    </div>
+    <div class="fv__inner">
+      <p class="fv__eyebrow">健康 × 節約 という新しい選択</p>
+      <h1 class="fv__title">
+        毎月の水代、<br>
+        <span class="fv__title-em">高すぎませんか？</span>
+      </h1>
+      <p class="fv__lead">
+        子どもには、良いお水を飲ませたい。<br>
+        でも、家計も守りたい。<br>
+        そんなご家庭のための、<br class="sp-only">新しい選択肢です。
+      </p>
+
+      <div class="fv__pricetag">
+        <span class="fv__pricetag-lead">水道水から、たっぷり作れる</span>
+        <span class="fv__pricetag-main">月額 <strong>3,800</strong><small>円</small> で <strong>約150L</strong></span>
+        <span class="fv__pricetag-sub">毎日のお水を、おいしく・安心に。</span>
+      </div>
+
+      <div class="fv__photo">
+        <!-- 写真仮置き：FVメインビジュアル -->
+        <div class="ph ph--fv" data-ph="01_fv-family.jpg ／ 1200×900 ／ 家族でキッチンに立ち、コップのお水を飲む明るい写真">
+          <span class="ph__label">FVメインビジュアル</span>
+        </div>
+      </div>
+
+      <div class="fv__cta">
+        <a href="#solution" class="btn btn--ghost">詳細を見る</a>
+        <a href="https://forms.gle/dHGQMcwnVssw4LRP9" class="btn btn--primary" target="_blank" rel="noopener">説明会に参加する（無料）</a>
+        <a href="https://potapotaclub.jp/newentry/" class="btn btn--accent" target="_blank" rel="noopener">お申込みはこちら</a>
+      </div>
+    </div>
+    <div class="wave wave--bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,32 C240,80 480,0 720,24 C960,48 1200,80 1440,40 L1440,80 L0,80 Z"></path></svg>
+    </div>
+  </section>
+
+
+  <!-- ===== ② 共感パート ===== -->
+  <section class="empathy" id="empathy">
+    <div class="container">
+      <p class="section-eyebrow">CHECK LIST</p>
+      <h2 class="section-title">こんなお悩み、<br class="sp-only">ありませんか？</h2>
+
+      <ul class="check-list">
+        <li class="check-list__item"><span class="check-list__box">☑</span>ペットボトル代が、地味に高い</li>
+        <li class="check-list__item"><span class="check-list__box">☑</span>重たい水を運ぶのが大変</li>
+        <li class="check-list__item"><span class="check-list__box">☑</span>子どもに飲ませる水が気になる</li>
+        <li class="check-list__item"><span class="check-list__box">☑</span>備蓄水の管理がめんどう</li>
+        <li class="check-list__item"><span class="check-list__box">☑</span>ウォーターサーバー代が高い</li>
+      </ul>
+
+      <p class="empathy__note">ひとつでも当てはまったら、<br class="sp-only">きっとお役に立てます。</p>
+    </div>
+  </section>
+
+
+  <!-- ===== ③ 現状認識 ===== -->
+  <section class="reality" id="reality">
+    <div class="container">
+      <p class="section-eyebrow">QUESTION</p>
+      <h2 class="section-title section-title--light">あなたのご家庭は、<br>月にいくら水に<br class="sp-only">使っていますか？</h2>
+
+      <div class="reality__cards">
+        <div class="fact-card">
+          <span class="fact-card__num">100<small>円</small></span>
+          <p class="fact-card__label">2Lペットボトル<br>1本あたり</p>
+        </div>
+        <div class="fact-card__op">×</div>
+        <div class="fact-card">
+          <span class="fact-card__num">1.5〜2<small>L</small></span>
+          <p class="fact-card__label">1人が1日に<br>必要なお水</p>
+        </div>
+        <div class="fact-card__op">×</div>
+        <div class="fact-card">
+          <span class="fact-card__num">毎日</span>
+          <p class="fact-card__label">家族みんなで<br>飲み続けると…</p>
+        </div>
+      </div>
+
+      <div class="reality__result">
+        <p class="reality__result-lead">ご家族(4人)で飲み続けると</p>
+        <p class="reality__result-num">年間 <strong>48<span>万円</span></strong> 以上</p>
+        <p class="reality__result-sub">お水だけで、これだけの出費になることも。<br>
+          <small>※2Lペットボトルで家族4人分をまかなった場合の試算例です。</small></p>
+      </div>
+    </div>
+    <div class="wave wave--top-light" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C240,0 480,72 720,48 C960,24 1200,0 1440,40 L1440,80 L0,80 Z"></path></svg>
+    </div>
+  </section>
+
+
+  <!-- ===== ④ 解決策 ===== -->
+  <section class="solution" id="solution">
+    <div class="container">
+      <p class="section-eyebrow">SOLUTION</p>
+      <h2 class="section-title">水道水から作る、<br class="sp-only">という選択。</h2>
+      <p class="section-lead">いつもの水道水を、毎日おいしく安心なお水に。<br>
+        買う・運ぶ・備える、そのすべてがラクになります。</p>
+
+      <div class="solution__photo">
+        <!-- 写真仮置き：サーバー本体 -->
+        <div class="ph ph--server" data-ph="04_server.png ／ 900×1100 ／ サーバー本体（背景白・余白広め）">
+          <span class="ph__label">サーバー写真</span>
+        </div>
+      </div>
+
+      <ul class="feature-list">
+        <li class="feature-card">
+          <span class="feature-card__icon">🫧</span>
+          <h3 class="feature-card__title">不要なものを除去</h3>
+          <p class="feature-card__text">高性能フィルターで、気になる物質をしっかりカット。</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon">🌿</span>
+          <h3 class="feature-card__title">ミネラルを補給</h3>
+          <p class="feature-card__text">ただ"きれい"なだけじゃない。からだにうれしいミネラルも。</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon">🔌</span>
+          <h3 class="feature-card__title">電気がいらない</h3>
+          <p class="feature-card__text">電源不要だから、置き場所も電気代も気にせず使えます。</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon">🛟</span>
+          <h3 class="feature-card__title">災害時にも活躍</h3>
+          <p class="feature-card__text">停電・断水のときも、お水をつくれる安心が手元に。</p>
+        </li>
+        <li class="feature-card">
+          <span class="feature-card__icon">🏠</span>
+          <h3 class="feature-card__title">自宅でかんたん</h3>
+          <p class="feature-card__text">むずかしい操作はなし。毎日の暮らしにそっと寄り添います。</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ===== ⑤ コスト比較 ===== -->
+  <section class="compare" id="compare">
+    <div class="container">
+      <p class="section-eyebrow">COST</p>
+      <h2 class="section-title section-title--light">毎日のことだから、<br class="sp-only">コストで考える。</h2>
+
+      <div class="cost-hero">
+        <p class="cost-hero__lead">水道水から、たっぷり作れる</p>
+        <p class="cost-hero__main">月額 <strong>3,800</strong><span>円</span></p>
+        <p class="cost-hero__amount">で 約 <strong>150L</strong> のお水</p>
+        <p class="cost-hero__sub">1Lあたり 約25円 ／ ※ご利用状況により変動します</p>
+      </div>
+
+      <p class="compare__bridge">ほかの選択肢と、月あたりで比べてみると…</p>
+
+      <div class="compare__table">
+        <div class="compare-row">
+          <div class="compare-row__head">
+            <span class="compare-row__name">ペットボトル</span>
+            <span class="compare-row__tag">買って運ぶ</span>
+          </div>
+          <div class="compare-row__val">
+            <span class="compare-row__price">月 約3,000〜6,000<small>円</small></span>
+            <span class="compare-bar" style="--w:60%"></span>
+          </div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-row__head">
+            <span class="compare-row__name">一般的な<br class="sp-only">ウォーターサーバー</span>
+            <span class="compare-row__tag">レンタル＋水代</span>
+          </div>
+          <div class="compare-row__val">
+            <span class="compare-row__price">月 約4,200〜8,300<small>円</small></span>
+            <span class="compare-bar" style="--w:85%"></span>
+          </div>
+        </div>
+
+        <div class="compare-row compare-row--eco">
+          <div class="compare-row__head">
+            <span class="compare-row__name">ECO ウォーター</span>
+            <span class="compare-row__tag compare-row__tag--eco">水道水から作る</span>
+          </div>
+          <div class="compare-row__val">
+            <span class="compare-row__price compare-row__price--eco">月額 3,800<small>円</small>（約150L）</span>
+            <span class="compare-bar compare-bar--eco" style="--w:46%"></span>
+          </div>
+        </div>
+      </div>
+
+      <p class="compare__note">※年間に直すと、ペットボトル36,000〜72,000円／一般的なウォーターサーバー50,000〜100,000円が目安です。ご利用状況により変動します。</p>
+    </div>
+    <div class="wave wave--bottom-light" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,32 C240,80 480,0 720,24 C960,48 1200,80 1440,40 L1440,80 L0,80 Z"></path></svg>
+    </div>
+  </section>
+
+
+  <!-- ===== ⑥ 利用者の声 ===== -->
+  <section class="voices" id="voices">
+    <div class="container">
+      <p class="section-eyebrow">VOICE</p>
+      <h2 class="section-title">使ってみて、<br class="sp-only">こう変わりました。</h2>
+
+      <div class="voice-grid">
+        <figure class="voice-card">
+          <div class="ph ph--voice" data-ph="06_voice-01.jpg ／ 400×400 ／ お水を飲むお子さんの笑顔">
+            <span class="ph__label">写真</span>
+          </div>
+          <blockquote class="voice-card__text">子どもが、自分からお水を飲むようになりました。</blockquote>
+          <figcaption class="voice-card__name">30代・ママ</figcaption>
+        </figure>
+
+        <figure class="voice-card">
+          <div class="ph ph--voice" data-ph="06_voice-02.jpg ／ 400×400 ／ 空のペットボトル置き場がスッキリした様子">
+            <span class="ph__label">写真</span>
+          </div>
+          <blockquote class="voice-card__text">ペットボトルを買わなくなって、買い物がラクに。</blockquote>
+          <figcaption class="voice-card__name">40代・主婦</figcaption>
+        </figure>
+
+        <figure class="voice-card">
+          <div class="ph ph--voice" data-ph="06_voice-03.jpg ／ 400×400 ／ お水でお料理しているシーン">
+            <span class="ph__label">写真</span>
+          </div>
+          <blockquote class="voice-card__text">お料理にも使っています。ごはんが、おいしい。</blockquote>
+          <figcaption class="voice-card__name">50代・ご夫婦</figcaption>
+        </figure>
+
+        <figure class="voice-card">
+          <div class="ph ph--voice" data-ph="06_voice-04.jpg ／ 400×400 ／ ゴミ箱まわりがスッキリした暮らし">
+            <span class="ph__label">写真</span>
+          </div>
+          <blockquote class="voice-card__text">ゴミが減って、家のなかもスッキリしました。</blockquote>
+          <figcaption class="voice-card__name">30代・ファミリー</figcaption>
+        </figure>
+      </div>
+
+      <p class="voices__note">※個人の感想です。</p>
+    </div>
+  </section>
+
+
+  <!-- ===== ⑦ ストーリー ===== -->
+  <section class="story" id="story">
+    <div class="container">
+      <p class="section-eyebrow">STORY</p>
+      <h2 class="section-title section-title--light">なぜ、私が<br class="sp-only">お伝えしているのか。</h2>
+
+      <div class="story__body">
+        <div class="story__photo">
+          <!-- 写真仮置き：佐々木えり様 -->
+          <div class="ph ph--portrait" data-ph="07_profile-eri.jpg ／ 800×1000 ／ 佐々木えり様の自然な笑顔のポートレート">
+            <span class="ph__label">佐々木えり</span>
+          </div>
+        </div>
+
+        <div class="story__text">
+          <p class="story__name">佐々木 えり</p>
+          <p>幼いころから、アトピーに悩んできました。それでも当時の私は、お水のことなんて、まったく気にしていませんでした。</p>
+          <p>毎日はコーヒー中心。お水は「ただの飲みもの」くらいに思っていたんです。</p>
+          <p>転機は、子どもが生まれたこと。「この子に、何を飲ませてあげたいだろう」——そこから、お水について真剣に学びはじめました。</p>
+          <p>調べるほどに気づいたのは、<strong>毎日口にするお水こそ、いちばん大切にしたいもの</strong>だということ。今は、その実感を、同じように悩む方へお伝えしています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ⑧ 安心材料 ===== -->
+  <section class="trust" id="trust">
+    <div class="container">
+      <p class="section-eyebrow">TRUST</p>
+      <h2 class="section-title">安心して、<br class="sp-only">はじめられます。</h2>
+
+      <ul class="trust-grid">
+        <li class="trust-card">
+          <span class="trust-card__icon">🗾</span>
+          <p class="trust-card__title">全国で<br>愛用されています</p>
+        </li>
+        <li class="trust-card">
+          <span class="trust-card__icon">⏳</span>
+          <p class="trust-card__title">長年にわたり<br>選ばれています</p>
+        </li>
+        <li class="trust-card">
+          <span class="trust-card__icon">🥤</span>
+          <p class="trust-card__title">体験会を<br>開催中</p>
+        </li>
+        <li class="trust-card">
+          <span class="trust-card__icon">💬</span>
+          <p class="trust-card__title">説明会に<br>参加できます</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ===== ⑨ クロージング ===== -->
+  <section class="closing" id="contact">
+    <div class="closing__bg" aria-hidden="true">
+      <span class="blob blob--a"></span>
+      <span class="blob blob--b"></span>
+    </div>
+    <div class="container">
+      <p class="closing__lead">健康も、家計も、あきらめない。</p>
+      <h2 class="closing__title">
+        「安い」だけでも、<br>
+        「高い」だけでもなく。<br>
+        <span class="closing__title-em">毎日続けられる選択を。</span>
+      </h2>
+
+      <div class="closing__cta">
+        <a href="https://forms.gle/dHGQMcwnVssw4LRP9" class="btn btn--primary btn--lg" target="_blank" rel="noopener">説明会に参加する（無料）</a>
+        <a href="https://potapotaclub.jp/newentry/" class="btn btn--accent btn--lg" target="_blank" rel="noopener">お申込みはこちら</a>
+      </div>
+
+      <div class="closing__referrer" id="contact-info">
+        <p class="closing__referrer-label">ご紹介</p>
+        <p class="closing__referrer-name">ササキエリ</p>
+        <p class="closing__referrer-id">紹介ID：442981</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ===== フッター ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <p class="site-footer__logo">CLUB ECO WATER</p>
+    <p class="site-footer__copy">&copy; CLUB ECO WATER</p>
+  </div>
+</footer>
+
+
+<!-- ===== 固定CTAバー（スマホ） ===== -->
+<div class="floating-bar">
+  <a href="https://forms.gle/dHGQMcwnVssw4LRP9" class="floating-bar__btn floating-bar__btn--primary" target="_blank" rel="noopener">説明会に参加（無料）</a>
+  <a href="https://potapotaclub.jp/newentry/" class="floating-bar__btn floating-bar__btn--accent" target="_blank" rel="noopener">お申込み</a>
+</div>
+
+<script>
+/* =========================================================
+   CLUB ECO WATER  LP  /  app.js
+   ・スクロールで要素をふわっと表示（reveal）
+   ・固定CTAバーをFV通過後に表示
+   ========================================================= */
+(function () {
+  'use strict';
+
+  /* ---------- 1. reveal（スクロール表示） ---------- */
+  // 主要なブロックに .reveal を自動付与してから監視する
+  var targets = document.querySelectorAll(
+    '.section-eyebrow, .section-title, .section-lead, ' +
+    '.fv__eyebrow, .fv__title, .fv__lead, .fv__pricetag, .fv__photo, .fv__cta, ' +
+    '.cost-hero, .compare__bridge, ' +
+    '.check-list__item, .fact-card, .reality__result, ' +
+    '.feature-card, .compare-row, .voice-card, ' +
+    '.story__photo, .story__text, .trust-card, ' +
+    '.closing__lead, .closing__title, .closing__cta, .closing__referrer, ' +
+    '.solution__photo, .empathy__note'
+  );
+
+  targets.forEach(function (el, i) {
+    el.classList.add('reveal');
+    // 同じグループ内の要素を少しずつ遅らせる
+    var delay = (i % 5) * 70;
+    el.style.transitionDelay = delay + 'ms';
+  });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach(function (el) { io.observe(el); });
+  } else {
+    // 古いブラウザ：そのまま表示
+    targets.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ---------- 2. 固定CTAバーの表示制御 ---------- */
+  var bar = document.querySelector('.floating-bar');
+  var fv = document.querySelector('.fv');
+  if (bar && fv) {
+    bar.style.transform = 'translateY(120%)';
+    bar.style.transition = 'transform .35s ease';
+
+    var barIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        // FVが見えている間は隠す／通過したら出す
+        bar.style.transform = entry.isIntersecting ? 'translateY(120%)' : 'translateY(0)';
+      });
+    }, { threshold: 0.15 });
+    barIO.observe(fv);
+  }
+
+})();
+
+</script>
+</body>
+</html>
