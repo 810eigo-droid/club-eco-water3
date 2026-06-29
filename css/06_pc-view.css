@@ -31,7 +31,7 @@ body {
   background-image: url('../images/pc-bg1.webp');
   background-size: cover;
   background-position: center center;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-repeat: no-repeat;
   transition: background-image 1s ease-in-out;
 }
